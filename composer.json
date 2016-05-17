@@ -5,7 +5,9 @@
 	"license": "MIT",
 	"type": "project",
 	"require": {
-		"laravel/framework": "4.2.*"
+		"laravel/framework": "4.2.*",
+		"stripe/stripe-php" : "dev-master",
+		"fzaninotto/faker": "^1.6"
 	},
 	"autoload": {
 		"classmap": [
