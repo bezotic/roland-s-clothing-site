@@ -9,9 +9,19 @@ class ShirtsController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		View::make('shirts.index');
 	}
 
+	public function show()
+	{
+		$shirt = Shirt::find($id);
+		
+		if (is_null($shirt)) {
+			App::abort(404);
+		}
+
+		return View::make('shirts.show', ['shirt'=>$shirt]);
+	}
 
 	/**
 	 * Show the form for creating a new resource.
@@ -20,7 +30,7 @@ class ShirtsController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('shirts.create');
 	}
 
 
@@ -31,7 +41,9 @@ class ShirtsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$shirt = new Shirt();
+		Log::info(Input::all());
+		return $this->validateAndSave($shirt);
 	}
 
 
@@ -41,11 +53,6 @@ class ShirtsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
-	{
-		//
-	}
-
 
 	/**
 	 * Show the form for editing the specified resource.
@@ -55,7 +62,13 @@ class ShirtsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$shirt = Shirt::find($id)
+
+		if (is_null($shirt)) {
+			App::abort(404);
+		}
+
+		return View::make('shirts.edit')->with('shirt', $shirt);
 	}
 
 
@@ -67,7 +80,12 @@ class ShirtsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$shirt = Shirt::find($id);
+		if (is_null($shirt)) {
+			App::abort(404);
+		}
+
+		return $this->validateAndSave($shirt);
 	}
 
 
@@ -79,7 +97,18 @@ class ShirtsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$shirt = Shirt::find($id);
+
+		if (is_null($shirt)) {
+			Session::flash('errorMessage', 'The item was not found')
+			return Redirect::action('ShirtsController@index');
+		}
+
+		$shirt->delete();
+			Session::flash('sucessMessage', 'Item(s) successfully deleted!')
+			return Redirect::action('ShirtsController@index');
+
+
 	}
 
 

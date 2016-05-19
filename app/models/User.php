@@ -5,9 +5,10 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class User extends Eloquent implements UserInterface, RemindableInterface {
+class User extends Eloquent implements UserInterface, RemindableInterface, BillableInterface {
 
-	use UserTrait, RemindableTrait;
+	use UserTrait, RemindableTrait, BillableTrait;
+
 
 	const ADMIN = 1;
 	const STANDARD = 2;
@@ -30,7 +31,10 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	public static $rules = ['first_name'=>'required',
 							'last_name'=>'required',
-							'email'=>'required'
+							'email'=>'required',
+							'city' => 'required',
+							'state'=> 'required',
+							'address'=>'required'
 							];
 
 	
