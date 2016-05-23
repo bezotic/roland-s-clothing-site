@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateShirtsTable extends Migration {
+class CreateInventoriesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,13 +12,16 @@ class CreateShirtsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('shirts', function($table)
+		Schema::create('inventories', function($table)
 		{
 			$table->increments('id');
-			$table->string('type',100);
-			$table->string('size',20);
-			$table->float('price');
+			$table->string('title',255);
+			$table->text('description');
+			$table->string('image');
+			$table->string('type',255);
 			$table->timestamps();
+			
+
 		});
 	}
 
@@ -29,7 +32,7 @@ class CreateShirtsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('shirts');
+		Schema::drop('inventories');
 	}
 
 }

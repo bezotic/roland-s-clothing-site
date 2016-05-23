@@ -5,9 +5,9 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class User extends Eloquent implements UserInterface, RemindableInterface, BillableInterface {
+class User extends Eloquent implements UserInterface, RemindableInterface {
 
-	use UserTrait, RemindableTrait, BillableTrait;
+	use UserTrait, RemindableTrait;
 
 
 	const ADMIN = 1;
@@ -39,9 +39,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface, Billa
 
 	
 
-	public function posts()
+	public function orderItems()
 	{
-	    return $this->hasMany('Post');
+	    return $this->hasMany('OrderItem');
 	}
 
 	public function setPasswordAttribute($value)
