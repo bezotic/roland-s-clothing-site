@@ -31,17 +31,30 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	public static $rules = ['first_name'=>'required',
 							'last_name'=>'required',
-							'email'=>'required',
+							'email'=>'required|email',
 							'city' => 'required',
 							'state'=> 'required',
 							'address'=>'required'
 							];
 
+
+	public static $changePasswordRules = array(
+
+	    'password'  => 'required|confirmed',
+	    
+	    
+
+	);
 	
 
 	public function orderItems()
 	{
 	    return $this->hasMany('OrderItem');
+	}
+
+	public function order()
+	{
+		return $this->hasMany('Order');
 	}
 
 	public function setPasswordAttribute($value)

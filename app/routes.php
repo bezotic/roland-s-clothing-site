@@ -16,10 +16,15 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-Route::resource('posts', 'PostsController');
 
 Route::resource('users', 'UsersController');
 
-Route::resource('shirts', 'ShirtsController');
+Route::resource('inventories', 'InventoryController');
+
+Route::resource('sizeDetails', 'SizeDetailController');
+
+Route::resource('orderItems', 'OrderItemController');
+
+Route::resource('orders', 'OrderController');
 
 

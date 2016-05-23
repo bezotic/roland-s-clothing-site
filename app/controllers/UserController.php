@@ -168,7 +168,7 @@ class UserController extends \BaseController
 
 	public function validateAndSavePassword($user)
 	{
-		$validator = Validator::make(Input::all(), User::$loginRules);
+		$validator = Validator::make(Input::all(), User::$changePasswordRules);
 
 	    // attempt validation
 	    if ($validator->fails()) {
