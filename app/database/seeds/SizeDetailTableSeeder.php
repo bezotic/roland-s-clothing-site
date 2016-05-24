@@ -11,7 +11,6 @@ class SizeDetailTableSeeder extends Seeder {
 		$sizeDetail->inventory_id = Inventory::first()->id;
 		$sizeDetail->size = 'sm';
 		$sizeDetail->amount = 20;
-		$sizeDetail->cost = 22.00;
 		$sizeDetail->save();
 	}
 

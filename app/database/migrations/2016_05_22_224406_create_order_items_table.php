@@ -20,6 +20,7 @@ public function up()
 			$table->integer('sizeDetail_id')->unsigned();
 			$table->foreign('sizeDetail_id')->references('id')->on('sizeDetails');
 			$table->integer('count');
+			$table->float('cost');
 			$table->timestamps();
 
 		});

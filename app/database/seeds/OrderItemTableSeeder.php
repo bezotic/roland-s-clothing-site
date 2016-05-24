@@ -11,6 +11,7 @@ class OrderItemTableSeeder extends Seeder {
 		$orderItem->user_id = User::first()->id;
 		$orderItem->sizeDetail_id = SizeDetail::first()->id;
 		$orderItem->count = 1;
+		$orderItem->cost = 22.00;
 		$orderItem->save();
 	}
 

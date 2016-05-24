@@ -11,9 +11,6 @@ class Order extends BaseModel {
 		return $this->belongsTo('User');
 	}
 
-	public function orderItems()
-	{
-		return $this->hasMany('OrderItem');
-	}
+	
 }
 

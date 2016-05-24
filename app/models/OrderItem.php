@@ -6,10 +6,7 @@ class OrderItem extends BaseModel {
 
 
 
-	public function user(){
-
-		return $this->belongsTo('User');
-	}
+	
 
 	public function orders(){
 
