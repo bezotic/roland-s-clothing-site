@@ -5,7 +5,7 @@ class Inventory extends BaseModel {
 	protected $table = 'inventories';
 
 
-	public function $rules = [
+	public static $rules = [
 						'title' => 'required',
 						'description' => 'required',
 						'image' => 'required',

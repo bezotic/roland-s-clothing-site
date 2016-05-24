@@ -6,7 +6,7 @@ class Order extends BaseModel {
 
 
 
-		public function $rules = [
+		public static $rules = [
 						'total' => 'required',
 						
 						];
