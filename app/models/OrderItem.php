@@ -6,7 +6,7 @@ class OrderItem extends BaseModel {
 
 
 
-	public function $rules = [
+	public static $rules = [
 						'count' => 'required',
 						'cost'  => 'required'
 						];
@@ -18,7 +18,10 @@ class OrderItem extends BaseModel {
 	}
 	
 
-
+	public function totalOrder()
+	{
+		
+	}
 
 	
 }
