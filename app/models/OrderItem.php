@@ -18,7 +18,10 @@ class OrderItem extends BaseModel {
 	}
 	
 
-
+	public function totalOrder()
+	{
+		
+	}
 
 	
 }
