@@ -97,16 +97,37 @@ class SizeDetailController extends \BaseController {
 	{
 		$sizeDetails = SizeDetail::find($id);
 		if(!$sizeDetails) {
-			Session::flash('errorMessage', "User not found ");
-			return Redirect::action('PostsController@index');
+			Session::flash('errorMessage', "User not found");
+			return Redirect::action('UserController@index');
 
 		}
 
 		$sizeDetails->delete();
 		Session::flash('successMessage', "Size has been deleted");
 
-		return Redirect::action('PostsController@index');
+		return Redirect::action('UserController@index');
 
+	}
+
+	public function validateAndSave($sizeDetails)
+	{
+		$validator = Validator::make(Input::all(), SizeDetail::$rules);
+
+		  if ($validator->fails()) {
+	        // validation failed, redirect to the post create page with validation errors and old inputs
+	        Session::flash('errorMessage', "Unable to save, see errors");
+	        return Redirect::back()->withInput()->withErrors($validator);
+	    } else {
+			$sizeDetail->size = 'sm';
+			$sizeDetail->amount = 20;
+			$sizeDetail->save();
+			
+			Session::flash('successMessage', "Successfully saved!");
+	}
+
+	private function sizeDetailsNotFound(){
+
+		return App::abort(404);
 	}
 
 
