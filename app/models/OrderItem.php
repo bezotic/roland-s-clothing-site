@@ -6,8 +6,12 @@ class OrderItem extends BaseModel {
 
 
 
-	
+	public function $rules = [
+						'count' => 'required',
+						'cost'  => 'required'
+						];
 
+	
 	public function orders(){
 
 		return $this->hasMany('Order');

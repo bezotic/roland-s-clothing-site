@@ -8,7 +8,8 @@ class SizeDetail extends BaseModel {
 	 public static $rules = array(
 	    'size'     => 'required',
 	    'amount'   => 'required',
-	    'cost'	   => 'required'	
+	    'color'    => 'required'
+	    	
 	);
 
 	 public function orderItems()
@@ -16,7 +17,7 @@ class SizeDetail extends BaseModel {
 	 	return $this->hasMany('OrderItem');
 	 }
 
-	 
+
 
 
 
