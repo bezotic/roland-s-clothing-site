@@ -18,12 +18,15 @@ class DatabaseSeeder extends Seeder {
 		DB::table('orders')->delete();
 	
 
-		
-		$this->call('OrderTableSeeder');
-		$this->call('OrderItemTableSeeder');
-		$this->call('SizeDetailTableSeeder');
-		$this->call('InventoryTableSeeder');
 		$this->call('UserTableSeeder');
+		$this->call('InventoryTableSeeder');
+		$this->call('SizeDetailTableSeeder');
+		$this->call('OrderItemTableSeeder');
+		$this->call('OrderTableSeeder');
+		
+	
+	
+		
 
 		
 	}

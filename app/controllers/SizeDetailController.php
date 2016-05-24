@@ -118,8 +118,8 @@ class SizeDetailController extends \BaseController {
 	        Session::flash('errorMessage', "Unable to save, see errors");
 	        return Redirect::back()->withInput()->withErrors($validator);
 	    } else {
-			$sizeDetail->size = 'sm';
-			$sizeDetail->amount = 20;
+			$sizeDetail->size = Input::get('size');
+			$sizeDetail->amount = Input::get('amount');
 			$sizeDetail->save();
 			
 			Session::flash('successMessage', "Successfully saved!");

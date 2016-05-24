@@ -19,6 +19,7 @@ public function up()
 			$table->foreign('inventory_id')->references('id')->on('inventories');
 			$table->string('size',8);
 			$table->integer('amount');
+			$table->string('color');
 			$table->timestamps();
 
 		});
