@@ -37,3 +37,4 @@ class CreateInventoriesTable extends Migration {
 	}
 
 }
+
