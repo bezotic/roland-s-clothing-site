@@ -8,10 +8,13 @@ class UserController extends \BaseController
 	    // call base controller constructor
 	    parent::__construct();
 	    // run auth filter before all methods on this controller except index and show
-	    $this->beforeFilter('auth', array('except' => array('doLogin', 'showLogin', 'logout', 'create', 'store', 'showAbout')));
+	    $this->beforeFilter('auth', array('except' => array('doLogin', 'showLogin', 'logout', 'create', 'store', 'showAbout',  )));
 	}
 	
-
+	public function index()
+	{
+		return View::make('users.index');
+	}
 
 	public function showLogin()
 	{
@@ -24,7 +27,7 @@ class UserController extends \BaseController
 	// validate the info, create rules for the inputs
 	$rules = array(
 	    'email'    => 'required|email', // make sure the email is an actual email
-	    'password' => 'required|min:8' 
+	    'password' => 'required|min:3' 
 	);
 
 	// run the validation rules on the inputs from the form
@@ -50,12 +53,12 @@ class UserController extends \BaseController
 	        // redirect them to the secure section or whatever
 	        // return Redirect::to('secure');
 	        // for now we'll just echo success (even though echoing in a controller is bad)
-	       return Redirect::action('PostsController@create');
+	       return Redirect::action('UserController@index');
 
 	    } else {        
 
 	        // validation not successful, send back to form 
-	        return Redirect::to('posts.posts');
+	        return Redirect::to('UserController@index');
 
 	    }
 
@@ -68,7 +71,7 @@ class UserController extends \BaseController
 	public function logout()
 	{
 		Auth::logout();
-		return Redirect::action('PostsController@index');
+		return Redirect::action('UserController@index');
 	}
 
 	public function store() {
@@ -102,14 +105,14 @@ class UserController extends \BaseController
 		$post = Post::find($id);
 		if(!$user) {
 			Session::flash('errorMessage', "User not found ");
-			return Redirect::action('PostsController@index');
+			return Redirect::action('UserController@index');
 
 		}
 
 		$user->delete();
 		Session::flash('successMessage', "Your Account has been deleted");
 
-		return Redirect::action('PostsController@index');
+		return Redirect::action('UserController@index');
 
 	}
 
@@ -143,10 +146,10 @@ class UserController extends \BaseController
 			$user->last_name = Input::get('last_name');
 			$user->city = Input::get('city');
 			$user->state = Input::get('state');
-			$user->address = Input::get('address');x
+			$user->address = Input::get('address');
 			$user->save();
 			Session::flash('successMessage', "user was successfully saved!");
-			return Redirect::action('PostsController@index');
+			return Redirect::action('UserController@index');
 	    }
 	}
 
@@ -180,7 +183,7 @@ class UserController extends \BaseController
 			$user->password = Input::get('password');
 			$user->save();
 			Session::flash('successMessage', "password was successfully saved!");
-			return Redirect::action('PostsController@index');
+			return Redirect::action('UserController@index');
 	    }
 	}
 
@@ -189,6 +192,20 @@ class UserController extends \BaseController
 		return View::make('users.about');
 
 	}
+
+	public function show($id)
+	{
+		
+		$user = User::find($id);
+
+		if(is_null($user)){
+
+			return $this->userNotFound();
+		}
+
+		return View::make('users.show',['user' => $user]);
+	}
+
 
 	
 

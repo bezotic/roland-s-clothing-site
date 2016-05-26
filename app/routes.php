@@ -16,8 +16,9 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
+Route::get('users/index', 'UserController@index');
 
-Route::resource('users', 'UsersController');
+Route::resource('users', 'UserController');
 
 Route::resource('inventories', 'InventoryController');
 
