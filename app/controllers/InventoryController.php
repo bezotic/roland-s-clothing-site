@@ -9,7 +9,7 @@ class InventoryController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		return View::make('inventories.index');
 	}
 
 
@@ -20,7 +20,7 @@ class InventoryController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('inventories.create');
 	}
 
 
@@ -31,7 +31,9 @@ class InventoryController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$inventory = new Inventory();
+		Log::info(Input::all());
+		return $this->validateAndSave($inventory);
 	}
 
 
@@ -43,7 +45,14 @@ class InventoryController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$inventory = Inventory::find($id);
+
+		if(is_null($inventory)){
+
+			return $this->inventoryNotFound();
+		}
+
+		return View::make('inventories.show',['inventory' => $inventory]);
 	}
 
 
@@ -55,7 +64,9 @@ class InventoryController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$inventory = Inventory::find($id);
+		return View::make('inventories.edit')->with('inventory', $inventory);
+		
 	}
 
 
@@ -67,7 +78,12 @@ class InventoryController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$inventory = Inventory::find($id);
+			if (is_null($inventory)) {
+			App::abort(404);
+			} else {
+				return $this->validateAndSave($inventory);
+			}
 	}
 
 
@@ -79,7 +95,36 @@ class InventoryController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$inventory = Inventory::find($id);
+			if(!$inventory) {
+			Session::flash('errorMessage', "User not found");
+			return Redirect::action('UserController@index');
+
+		}
+
+		$inventory->delete();
+		Session::flash('successMessage', "Size has been deleted");
+
+		return Redirect::action('UserController@index')
+	}
+
+	public function validateAndSave($inventory);
+	{
+		$validator = Validator::make(Input::all(), Inventory::$rules);
+
+		  if ($validator->fails()) {
+	        // validation failed, redirect to the post create page with validation errors and old inputs
+	        Session::flash('errorMessage', "Unable to save, see errors");
+	        return Redirect::back()->withInput()->withErrors($validator);
+	    } else {
+			$inventory->title = Input::get('title');
+			$inventory->description = Input::get('description');
+			$inventory->image = Input::get('image');
+			$inventory->type = Input::get('type');
+			$inventory->save();
+			
+			
+			Session::flash('successMessage', "Successfully saved!");
 	}
 
 

@@ -33,7 +33,7 @@ class SizeDetailController extends \BaseController {
 	{
 		$sizeDetails = new SizeDetail();
 		Log::info(Input::all());
-		return $this->validateAndSave($user);
+		return $this->validateAndSave($sizeDetails);
 	}
 
 
@@ -97,13 +97,13 @@ class SizeDetailController extends \BaseController {
 	{
 		$sizeDetails = SizeDetail::find($id);
 		if(!$sizeDetails) {
-			Session::flash('errorMessage', "User not found");
+			Session::flash('errorMessage', "Item not found");
 			return Redirect::action('UserController@index');
 
 		}
 
 		$sizeDetails->delete();
-		Session::flash('successMessage', "Size has been deleted");
+		Session::flash('successMessage', "Item has been deleted");
 
 		return Redirect::action('UserController@index');
 
@@ -125,12 +125,10 @@ class SizeDetailController extends \BaseController {
 			Session::flash('successMessage', "Successfully saved!");
 	}
 
-	private function sizeDetailsNotFound(){
-
-		return App::abort(404);
-	}
+	
 
 
 
 
+}
 }

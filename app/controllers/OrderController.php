@@ -9,7 +9,7 @@ class OrderController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		return View::make('orders.index');
 	}
 
 
@@ -20,7 +20,7 @@ class OrderController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('orders.create');
 	}
 
 
@@ -31,7 +31,9 @@ class OrderController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$order = new Order();
+		Log::info(Input::all());
+		return $this->validateAndSave($order);
 	}
 
 
@@ -43,7 +45,14 @@ class OrderController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$order = Order::find($id);
+
+		if(is_null($order)){
+
+			return $this->orderNotFound();
+		}
+
+		return View::make('orders.show',['order' => $order]);
 	}
 
 
@@ -55,7 +64,8 @@ class OrderController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$order = Order::find($id);
+		return View::make('orders.edit')->with('order', $order);
 	}
 
 
@@ -67,7 +77,12 @@ class OrderController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$order = Order::find($id);
+			if (is_null($order)) {
+			App::abort(404);
+			} else {
+				return $this->validateAndSave($order);
+			}
 	}
 
 
@@ -79,8 +94,41 @@ class OrderController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$order = Order::find($id);
+		if(!$order) {
+			Session::flash('errorMessage', "User not found");
+			return Redirect::action('UserController@index');
+
+		}
+
+		$order->delete();
+		Session::flash('successMessage', "Size has been deleted");
+
+		return Redirect::action('UserController@index')
+
 	}
+
+	public function validateAndSave($order)
+	{
+		$validator = Validator::make(Input::all(), Order::$rules);
+
+		  if ($validator->fails()) {
+	        // validation failed, redirect to the post create page with validation errors and old inputs
+	        Session::flash('errorMessage', "Unable to save, see errors");
+	        return Redirect::back()->withInput()->withErrors($validator);
+	    } else {
+			$order->total = Input::get('total');
+			$order->save();
+			
+			Session::flash('successMessage', "Successfully saved!");
+	}
+
+	private function orderItemsNotFound()(){
+
+		return App::abort(404);
+	}
+
+
 
 
 }
