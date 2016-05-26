@@ -78,11 +78,11 @@ class OrderItemController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$sizeDetails = SizeDetail::find($id);
-			if (is_null($sizeDetails)) {
+		$orderItems = OrderItem::find($id);
+			if (is_null($orderItems)) {
 			App::abort(404);
 			} else {
-				return $this->validateAndSave($sizeDetails);
+				return $this->validateAndSave($orderItems);
 			}
 	}
 
@@ -95,32 +95,32 @@ class OrderItemController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		$sizeDetails = SizeDetail::find($id);
-		if(!$sizeDetails) {
-			Session::flash('errorMessage', "User not found");
+		$orderItems = OrderItem::find($id);
+		if(!$orderItems) {
+			Session::flash('errorMessage', "Item not found");
 			return Redirect::action('UserController@index');
 
 		}
 
-		$sizeDetails->delete();
-		Session::flash('successMessage', "Size has been deleted");
+		$orderItems->delete();
+		Session::flash('successMessage', "Item has been deleted");
 
 		return Redirect::action('UserController@index');
 
 	}
 
-	public function validateAndSave($sizeDetails)
+	public function validateAndSave($orderItems)
 	{
-		$validator = Validator::make(Input::all(), SizeDetail::$rules);
+		$validator = Validator::make(Input::all(), OrderItem::$rules);
 
 		  if ($validator->fails()) {
 	        // validation failed, redirect to the post create page with validation errors and old inputs
 	        Session::flash('errorMessage', "Unable to save, see errors");
 	        return Redirect::back()->withInput()->withErrors($validator);
 	    } else {
-			$sizeDetail->size = 'sm';
-			$sizeDetail->amount = 20;
-			$sizeDetail->save();
+			$orderItems->count = Input::get('count');
+			$orderItems->cost = Input::get('cost');
+			);
 			
 			Session::flash('successMessage', "Successfully saved!");
 	}
