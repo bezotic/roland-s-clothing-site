@@ -17,6 +17,11 @@ class SizeDetail extends BaseModel {
 	 	return $this->hasMany('OrderItem');
 	 }
 
+	 public function inventory()
+	 {
+	 	return $this->belongsTo('Inventory');
+	 }
+
 
 
 

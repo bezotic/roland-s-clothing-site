@@ -12,9 +12,9 @@ class OrderItem extends BaseModel {
 						];
 
 	
-	public function orders(){
+	public function order(){
 
-		return $this->hasMany('Order');
+		return $this->belongsTo('Order');
 	}
 	
 
