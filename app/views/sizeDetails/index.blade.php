@@ -8,7 +8,7 @@
 	<style>
 	 .navbar-default{
 		background-color: white;
-		
+		border:transparent;
 		color:black;
 		position:relative; 
 		width:100%;
@@ -36,11 +36,11 @@
 	   	
 		padding:0, 15;
 		color:black;
-		-webkit-transition: all 700ms ease;
-		-moz-transition: all 700ms ease;
-		-ms-transition: all 700ms ease;
-		-o-transition: all 700ms ease;
-		transition: all 700ms ease;
+		-webkit-transition: all 1000ms ease;
+		-moz-transition: all 1000ms ease;
+		-ms-transition: all 1000ms ease;
+		-o-transition: all 1000ms ease;
+		transition: all 1000ms ease;
 	}
 	
 	.nav-text {
@@ -111,10 +111,10 @@
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse navbar" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav">
-			<li><a class="nav-text"  >log-in</a></li>
+			<li><a class="nav-text"  >log-in/sign-up</a></li>
 			<li><a class="nav-text"  >sign-up</a></li>
 			<li><a class="nav-text" >About</a></li>
-			<li><a class="nav-text"  >Projects</a></li>
+			
 				     
 	    </div><!-- /.navbar-collapse -->
 </nav>

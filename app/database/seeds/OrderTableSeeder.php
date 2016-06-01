@@ -8,7 +8,8 @@ class OrderTableSeeder extends Seeder {
 	public function run()
 	{
 		$order = new Order();
-		$order->orderItem_id = OrderItem::first()->id;
+		$order->user_id = User::first()->id;
+		$order->address = '424 Balboa Ave';
 		$order->total = 22.00;
 		$order->save();
 	}

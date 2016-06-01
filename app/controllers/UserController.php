@@ -105,7 +105,6 @@ class UserController extends \BaseController
 		$post = Post::find($id);
 		if(!$user) {
 			Session::flash('errorMessage', "User not found ");
-			return Redirect::action('UserController@index');
 
 		}
 
