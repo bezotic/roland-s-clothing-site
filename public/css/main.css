@@ -1,0 +1,208 @@
+/* IT'S OPEN SOURCE BABY */
+
+/*CSS for transparent buttons over images */
+
+.thumb-links {
+    color: #fff;
+    font-size: 1.25em;
+    height: 64px;
+    padding: 18px 0 20px;
+    width: 180px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    border-radius: 3.5px;
+    position: absolute;
+    left: 100px;
+    bottom: 85px;
+    text-align: center;
+}
+
+
+/*The rest of the CSS goes here*/
+
+.index-img img {
+    height: 250px;
+    width: 350px;
+    position: relative;
+    padding-top: 1.6em;
+    opacity: 0.8;
+}
+
+img:hover {
+    opacity: 1;
+}
+
+.thumb-links a{
+    color: white;
+    text-decoration: none;
+}
+
+.thumb-links a:hover {
+    color: #B3BCB7;
+}
+
+.image {
+    height:700px;
+    width:100%;
+    background:#F2F2F2;
+}
+
+.content {
+    height:750px;
+    width:100%;
+    background:#F2F2F2;
+    z-index:2;
+}
+
+.content p {
+    font-size: 20px;
+    font-weight: 300;
+    margin:30px 60px;
+}
+
+#wall_1 {
+    background: url(/img/shirttransparent.jpg) repeat;
+    background-attachment: fixed;
+}
+
+
+.row {
+    max-width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.center {
+    text-align: center;
+}
+
+
+h1.whyblackco {
+    font-size: 42px;
+    line-height: 48px;
+    margin-bottom: 8px;
+}
+
+
+p.whyblackco {
+    font-size: 24px;
+    line-height: 27px;
+    margin-bottom: 16px;
+}
+
+
+p.whyblackco2 {
+    font-size: 18px;
+    line-height: 27px;
+    margin-bottom: 16px;
+}
+
+.mainCTA {
+    color: #19b5fe;
+    border: #19b5fe 1px solid;
+    font-weight: 700;
+    padding: 10px 35px;
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+.mainCTA:hover {
+    color: #f2f2f2;
+    background-color: #19b5fe;
+}
+
+
+.aboutAlignMiddle {
+    padding-top: none;
+    position: relative;
+}
+.clearPads {
+    padding: 0;
+}
+
+
+.aboutWrapper {
+    position: inherit;
+    width: 100%;
+    height: auto;
+    padding: 60px 0px 132px 0px;
+}
+
+
+.aboutTable {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+    display: inherit;
+}
+
+
+.line-break {
+    border-top:3px solid #19B5FE;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.line-break h3 {
+    color:black;
+    font-size: 28px;
+  
+    padding:0 0 16px;
+}
+
+.line-break h4 {
+    padding-right: 3.5em;
+}
+
+.copyright {
+     margin-top: 20px;
+     text-align: left;
+     float: left;
+     height:10em;
+}
+
+.copy {
+    white-space: nowrap;
+}
+
+.social-buttons {
+    float:right;
+    margin: 0 5px 0 0;
+}
+
+
+
+@media screen and  (max-width:602px) {
+   
+
+  .image {
+    
+    display:none;
+
+   
+
+}
+
+@media screen and  (max-width:757px) {
+    .social-buttons {
+        float:none;
+  
+    }
+
+}
+
+
+@media screen and  (max-width:400px) {
+    .social-buttons {
+        float:none;
+  
+    }
+
+}
+
+
+
+
+
+
+
+

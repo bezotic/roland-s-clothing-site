@@ -4,6 +4,8 @@
 <head>
 	<title></title>
 
+
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
 	<link href='https://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
@@ -15,9 +17,10 @@
   	
 
   	<link rel="stylesheet" href="//cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+
   	
 
-  	<link rel="stylesheet" href="/css/">
+  	<link rel="stylesheet" href="/css/main.css">
 
 	<script src="//cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 
@@ -26,10 +29,16 @@
 
     
     @yield('top-script')
+    <style>
+		body {
+			background-color: #f2f2f2;
+		}
+
+    </style>
 </head>
 <body>
 
-	
+@include('layouts.navbar')	
 
 
 	@if (Session::has('successMessage'))
@@ -54,9 +63,11 @@
 
 	@endif
 
+@include('layouts.footer')
 	
 	@yield('content')
 	<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="/js/stellar.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 	<script>
@@ -74,7 +85,10 @@
 		},1000)
 
 
-		
+		$(document).ready(function() {
+
+			$(window).stellar();
+		});
 		
 
 		
