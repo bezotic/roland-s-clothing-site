@@ -8,12 +8,18 @@ class Order extends BaseModel {
 
 		public static $rules = [
 						'total' => 'required',
+						'address'=> 'required'
 						
 						];
 
 	public function user(){
 
 		return $this->belongsTo('User');
+	}
+
+	public function orderItems(){
+
+		return $this->hasMany('OrderItem');
 	}
 
 	
