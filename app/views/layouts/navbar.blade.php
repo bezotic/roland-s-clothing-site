@@ -66,7 +66,7 @@
 
 		.row {
 			color: #b3bcb7;
-    		/background-color: #717B7D;
+    		
     		text-align: center;
 		}
 

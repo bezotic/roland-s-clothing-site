@@ -32,6 +32,7 @@
 
     	body {
     		font-family: 'Tangerine', serif;
+    		
     	}
 
 		#login-brand {
