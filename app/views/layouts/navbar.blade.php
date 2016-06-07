@@ -136,7 +136,7 @@
 		</div>
 </div>
 
-	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-default" style="border-color: #333;">
 		    <div class="navbar-header">
 		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 		        <span class="sr-only">Toggle navigation</span>
@@ -149,9 +149,9 @@
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse navbar" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav">
-				<li><a class="nav-text" href="#">log-in/sign-up</a></li>
-				<li><a class="nav-text" href="#">sign-up</a></li>
-				<li><a class="nav-text" href="#">About</a></li>
+				<li><a class="nav-text" href="{{{action('UserController@showLogin')}}}">log-in/sign-up</a></li>
+
+				<li><a class="nav-text" href="{{{action('UserController@showAbout')}}}">About</a></li>
 				
 					     
 		    </div><!-- /.navbar-collapse -->

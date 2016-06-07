@@ -18,6 +18,14 @@ Route::get('/', function()
 
 Route::get('users/index', 'UserController@index');
 
+Route::get('users/about', 'UserController@showAbout');
+
+Route::get('users/login', 'UserController@showLogin');
+
+Route::get('users/create', 'UserController@create');
+
+Route::post('users/login', 'UserController@doLogin');
+
 Route::resource('users', 'UserController');
 
 Route::resource('inventories', 'InventoryController');
