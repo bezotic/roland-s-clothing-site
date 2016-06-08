@@ -200,8 +200,9 @@
 						{{ Form::password('password',['class'=> 'form-control', 'placeholder'=>"Enter password"]) }}
 						<br>
 						{{ Form::submit('SIGN IN', ['id' => "sign-in-btn" ,'type'=> "submit" ,'name' =>'log-in' ,'value' => 'true', 'class' => "btn btn-default"]) }}
+
 				{{ Form::close() }}
-				
+					<?= var_dump(Auth::user())?>
 			</div>
 			<div class="password-forget">
 				<a href="#" style="color: black; text-align: center; text-decoration: underline;">Forgot password?</a>

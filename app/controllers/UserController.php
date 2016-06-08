@@ -47,7 +47,7 @@ class UserController extends \BaseController
 	        // redirect them to the secure section or whatever
 	        // return Redirect::to('secure');
 	        // for now we'll just echo success (even though echoing in a controller is bad)
-	       return Redirect::action('UserController@index');
+	       return Redirect::action('UserController@showLogin');
 
 	    } else {        
 
@@ -110,7 +110,7 @@ class UserController extends \BaseController
 	}
 
 
-	public function validateAndSave ($user){
+	public function validateAndSave (){
 		
 	    $validator = Validator::make(Input::all(), User::$newUserRules);
 
