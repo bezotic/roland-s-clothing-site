@@ -31,7 +31,9 @@
     @yield('top-script')
     <style>
 		body {
-			background-color: #f2f2f2;
+			
+    		font-family: 'Tangerine', serif;
+  
 		}
 
     </style>
