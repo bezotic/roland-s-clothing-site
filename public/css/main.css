@@ -44,7 +44,11 @@ img:hover {
 .image {
     height:700px;
     width:100%;
-    background:#F2F2F2;
+    background:black;
+}
+
+.image h2 {
+    position:fixed;
 }
 
 .content {
@@ -61,7 +65,7 @@ img:hover {
 }
 
 #wall_1 {
-    background: url(/img/shirttransparent.jpg) repeat;
+    background: url(/img/shirttransparent.jpg) repeat-x;
     background-attachment: fixed;
 }
 
@@ -81,13 +85,18 @@ h1.whyblackco {
     font-size: 42px;
     line-height: 48px;
     margin-bottom: 8px;
+    color: #4698AD;
+    padding-bottom: 20px;
 }
 
 
 p.whyblackco {
-    font-size: 24px;
+    font-size: 22px;
     line-height: 27px;
     margin-bottom: 16px;
+    padding-bottom: 20px;
+    font-weight: 100;
+
 }
 
 
@@ -95,20 +104,22 @@ p.whyblackco2 {
     font-size: 18px;
     line-height: 27px;
     margin-bottom: 16px;
+
 }
 
 .mainCTA {
-    color: #19b5fe;
-    border: #19b5fe 1px solid;
+    color: #4698AD;
+    border: #4698AD 1px solid;
     font-weight: 700;
     padding: 10px 35px;
     text-decoration: none !important;
     cursor: pointer;
+    margin-top: 20px;
 }
 
 .mainCTA:hover {
     color: #f2f2f2;
-    background-color: #19b5fe;
+    background-color: #4698AD;
 }
 
 
@@ -123,9 +134,13 @@ p.whyblackco2 {
 
 .aboutWrapper {
     position: inherit;
-    width: 100%;
+    width: 99%;
     height: auto;
-    padding: 60px 0px 132px 0px;
+    margin: 60px 20px 60px 8px;
+    border: 1px solid #E1E1E1;
+    padding-bottom: 80px;
+    padding-top: 30px;
+    background-image: url(/img/concrete_seamless.png);
 }
 
 
@@ -138,7 +153,7 @@ p.whyblackco2 {
 
 
 .line-break {
-    border-top:3px solid #19B5FE;
+    border-top:3px solid #4698AD;
     border-bottom: 1px solid #e3e3e3;
 }
 
@@ -157,7 +172,11 @@ p.whyblackco2 {
      margin-top: 20px;
      text-align: left;
      float: left;
-     height:10em;
+     height:4em;
+}
+
+.copyright a {
+    color: #4698AD !important;
 }
 
 .copy {
@@ -169,7 +188,61 @@ p.whyblackco2 {
     margin: 0 5px 0 0;
 }
 
+.login-container {
+    border: 1px solid #ccc;
+    max-width: 720px;
+    min-width: 380px;
+    width: 100%;
+    padding: 20px 0 14px 1px;
+    margin-bottom: 80px;
+}
 
+.login-info h1 {
+    margin: 0 2.5% 0 2.5%;
+    max-width: 95%;
+    text-transform: none;
+    line-height: 33px;
+    font-size: 25px;
+    text-align: center;
+    padding: 0 6%;
+    margin: 43px 18px 18px;
+}
+
+.login-info {
+    text-align: center; 
+    padding: 0 6%;
+    margin: 43px 18px 18px;
+}
+
+.sign-in-form {
+    margin-left: 150px;
+    margin-right: 150px;
+    text-align: left !important;
+}
+
+.btn-sign-in {
+    margin-left: 110px;
+    margin-right: 90px;
+}
+
+.no-account {
+    color: black;
+    margin-top: 50px;
+    font-size: 18px !important;
+    margin-bottom: 50px;
+}
+
+.no-account a {
+    text-decoration: underline;
+    color: black;
+    margin-top: 50px;
+    font-size: 18px !important;
+    margin-bottom: 50px;
+}
+
+.password-forget {
+    margin-top: 30px;
+}
 
 @media screen and  (max-width:602px) {
    
@@ -198,6 +271,28 @@ p.whyblackco2 {
     }
 
 }
+
+.navbar-default {
+    border-color: #333 !important;
+}
+
+.navbar {
+    border-color: #333 !important;
+}
+
+nav {
+    border-color: #333 !important;
+}
+
+.h4 a{
+    color: #4698AD !important;
+}
+
+
+
+
+
+
 
 
 

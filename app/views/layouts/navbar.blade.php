@@ -66,7 +66,7 @@
 
 		.row {
 			color: #b3bcb7;
-    		/background-color: #717B7D;
+    		
     		text-align: center;
 		}
 
@@ -103,30 +103,7 @@
 	@if(Auth::user())
 
 
-	<nav class="navbar navbar-default">
-		    <div class="navbar-header">
-		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-		        <span class="sr-only">Toggle navigation</span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		      </button>
-		    </div>
-
-		    <!-- Collect the nav links, forms, and other content for toggling -->
-		    <div class="collapse navbar-collapse navbar" id="bs-example-navbar-collapse-1">
-		      <ul class="nav navbar-nav">
-				<li><a class="nav-text" >Home</a></li>
-				<li><a class="nav-text"  >Projects</a></li>
-				<li><a class="nav-text"  >Account</a></li>
-				<li><a class="nav-text"  >Logout</a></li>
-				<li><a class="nav-text"  >About</a></li>
-		     
-		    </div><!-- /.navbar-collapse -->
-	</nav>
-	@endif
-
-<div class= "row">
+	<div class= "row">
 	<h1>Blackgapco.</h1>
 		<div class="container">
 			<div class="icons">
@@ -136,7 +113,7 @@
 		</div>
 </div>
 
-	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-default" style="border-color: #333;">
 		    <div class="navbar-header">
 		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 		        <span class="sr-only">Toggle navigation</span>
@@ -149,15 +126,49 @@
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse navbar" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav">
-				<li><a class="nav-text" href="#">log-in/sign-up</a></li>
-				<li><a class="nav-text" href="#">sign-up</a></li>
-				<li><a class="nav-text" href="#">About</a></li>
+		      	<li><a class="welcome-user">Welcome,{{Auth::user()->first_name}}!</a></li>
+				<li><a class="nav-text" href="{{{action('UserController@showLogin')}}}">log-in/sign-up</a></li>
+
+				<li><a class="nav-text" href="{{{action('UserController@showAbout')}}}">About</a></li>
 				
 					     
 		    </div><!-- /.navbar-collapse -->
 	</nav>
+	@endif
 
+	@if(!Auth::user())
+		<div class= "row">
+			<h1>Blackgapco.</h1>
+				<div class="container">
+					<div class="icons">
+					  <a class="icon" href="#">	<i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a>
+					</div>
+					
+				</div>
+		</div>
 
+			<nav class="navbar navbar-default" style="border-color: #333;">
+				    <div class="navbar-header">
+				      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				        <span class="sr-only">Toggle navigation</span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </button>
+				    </div>
+
+				    <!-- Collect the nav links, forms, and other content for toggling -->
+				    <div class="collapse navbar-collapse navbar" id="bs-example-navbar-collapse-1">
+				      <ul class="nav navbar-nav">
+						<li><a class="nav-text" href="{{{action('UserController@showLogin')}}}">log-in/sign-up</a></li>
+
+						<li><a class="nav-text" href="{{{action('UserController@showAbout')}}}">About</a></li>
+						
+							     
+				    </div><!-- /.navbar-collapse -->
+			</nav>
+
+@endif
 
 
 

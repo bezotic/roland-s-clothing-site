@@ -10,8 +10,8 @@ class OrderTableSeeder extends Seeder {
 		$order = new Order();
 		$order->user_id = User::first()->id;
 		$order->address = '424 Balboa Ave';
-		$order->state = 'TX';
 		$order->zipcode = '78237';
+		$order->state = "TX";
 		$order->total = 22.00;
 		$order->save();
 
