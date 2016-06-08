@@ -3,7 +3,7 @@
 class UserController extends \BaseController 
 {
 
-	
+		
 	
 	public function index()
 	{
@@ -52,7 +52,7 @@ class UserController extends \BaseController
 	    } else {        
 
 	        // validation not successful, send back to form 
-	        return Redirect::to('UserController@index');
+	        return Redirect::to('UserController@create');
 
 	    }
 
@@ -110,41 +110,65 @@ class UserController extends \BaseController
 	}
 
 
-	public function validateAndSave($user)
-	{
-		$validator = Validator::make(Input::all(), User::$rules);
+	public function validateAndSave ($user){
+		
+	    $validator = Validator::make(Input::all(), User::$newUserRules);
 
-	    // attempt validation
 	    if ($validator->fails()) {
-	        // validation failed, redirect to the post create page with validation errors and old inputs
-	        Session::flash('errorMessage', "Unable to save, see errors");
-	        return Redirect::back()->withInput()->withErrors($validator);
+
+	       Session::flash('errorMessage','All fields must be filled in.');	
+
+	       return Redirect::back()->withInput()->withErrors($validator);
+
 	    } else {
+	      
+	      	$user = new User();
 
-	    	if (Input::hasFile('image'))
-			{
-			    $image = Input::file('image');
-			   	$image->move(
-			   		public_path('/image'),
-			   	$image->getClientOriginalName()
-			   	);
-			   	$user->image = "/image/{$image->getClientOriginalName()}";
-			}
-	        if (Input::has('password')){
-	        	$user->password = Input::get('password');
-
-	        }
-			$user->email = Input::get('email');
 			$user->first_name = Input::get('first_name');
+
 			$user->last_name = Input::get('last_name');
+
+			$user->email = Input::get('email');
+
 			$user->city = Input::get('city');
+
 			$user->state = Input::get('state');
+
 			$user->address = Input::get('address');
-			$user->save();
-			Session::flash('successMessage', "user was successfully saved!");
-			return Redirect::action('UserController@index');
+
+			//hashing where?
+			$password1 = Input::get('password');
+
+			$password2 = Input::get('password_confirm');
+			
+
+	
+
+				$user->password = $password1;
+
+				$result = $user->save();
+
+				
+
+				if($result) {
+					$loggedIn = Auth::attempt([
+						'email' => Input::get('email'),
+						'password' => Input::get('password')]);
+					}
+					if($loggedIn) {
+						Session::flash('successMessage','Account creation successful. Thank you.');
+						return Redirect::action('UserController@index', $user->id);
+					} else {
+						Session::flash('errorMessage','unsuccessful.');
+					}
+
+
+				
+
+			} 
+			
+			
 	    }
-	}
 
 	public function editPassword($id) {
 		$user = User::find($id);

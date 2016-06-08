@@ -101,11 +101,65 @@
 			    font-size: 15px;
 			    white-space: normal;
 			    letter-spacing: 1px;
+			   
 	    }
 
 		#sign-in-btn:hover {
 			opacity: .65;
 		}
+
+		@media screen and (max-width:582px) {
+    		.form-control {
+    			position:relative;
+    			width:300px;
+    		}
+    	}
+
+    	@media screen and (max-width:489px) {
+    		.form-control {
+    			position:relative;
+    			width:250px;
+    			right:1em;
+    		}
+    	}
+
+		@media screen and (max-width:464px) {
+    		.form-control {
+    			position:relative;
+    			width:250px;
+    			right:1em;
+    		}
+    	}
+
+    	@media screen and (max-width:424px) {
+    		.form-control {
+    			position:relative;
+    			width:250px;
+    			right:3em;
+    		}
+    	}
+
+		@media screen and  (max-width:400px) {
+    		.form-control {
+    			width:250px;
+    			position:relative;
+    			right:7em;
+    		}
+
+    		#sign-in-btn {
+    			position:relative;
+    			width:100px;
+    			right:6em;
+
+    		}
+  
+    	}
+
+    	
+
+    	
+
+}
 
 
     </style>
@@ -139,7 +193,7 @@
 
 			<div class="sign-in-form">
 				{{ Form::open(['action' => 'UserController@doLogin', 'method'=>'POST', 'class'=>'form-horizontal']) }}
-
+				
 					  {{ Form::email('email',null,['class'=> 'form-control',
 						'placeholder'=>"Enter email"]) }}
 						<br>
@@ -154,7 +208,7 @@
 			</div>
 			<div class="login-mid-txt"></div>
 			<div class="no-account">
-				Don't have an account? <a href="#">Why not join today?</a>
+				Don't have an account? <a href="{{{action('UserController@create')}}}">Why not join today?</a>
 			</div>
 
 		</div>
