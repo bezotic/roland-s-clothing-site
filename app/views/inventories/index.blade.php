@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
-	
-</body>
-</html>
+@extends('layouts.masters')
+
+@section('top-script')
+
+@stop
+
+@section('content')
+
+@stop
+
+@section('bottom-script')
+
+@stop

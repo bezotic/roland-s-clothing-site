@@ -28,6 +28,8 @@ Route::post('users/create', 'UserController@validateAndSave');
 
 Route::post('users/login', 'UserController@doLogin');
 
+Route::get('users/logout', 'UserController@logout');
+
 Route::resource('users', 'UserController');
 
 Route::resource('inventories', 'InventoryController');

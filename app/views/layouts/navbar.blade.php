@@ -96,6 +96,9 @@
 	    color: black;
 		}
 		
+		.log-out {
+			color:black;
+		}
 
 	</style>
 
@@ -107,6 +110,7 @@
 	<h1>Blackgapco.</h1>
 		<div class="container">
 			<div class="icons">
+			  <a class='log-out' href="{{{action('UserController@logout')}}}">sign out</a>
 			  <a class="icon" href="#">	<i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a>
 			</div>
 			
@@ -163,6 +167,8 @@
 						<li><a class="nav-text" href="{{{action('UserController@showLogin')}}}">log-in/sign-up</a></li>
 
 						<li><a class="nav-text" href="{{{action('UserController@showAbout')}}}">About</a></li>
+
+						<li><a class="nav-text" href="{{{action('InventoryController@index')}}}">Merch</a></li>
 						
 							     
 				    </div><!-- /.navbar-collapse -->

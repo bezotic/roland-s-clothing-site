@@ -105,10 +105,10 @@ class InventoryController extends \BaseController {
 		$inventory->delete();
 		Session::flash('successMessage', "Size has been deleted");
 
-		return Redirect::action('UserController@index')
+		return Redirect::action('UserController@index');
 	}
 
-	public function validateAndSave($inventory);
+	public function validateAndSave()
 	{
 		$validator = Validator::make(Input::all(), Inventory::$rules);
 
@@ -127,5 +127,7 @@ class InventoryController extends \BaseController {
 			Session::flash('successMessage', "Successfully saved!");
 	}
 
+
+}
 
 }

@@ -244,6 +244,31 @@ p.whyblackco2 {
     margin-top: 30px;
 }
 
+.about h1 {
+    margin-left: 40%;
+    text-decoration: underline;
+    margin-bottom: 1em;
+}
+
+.about img {
+    height:250px;
+    float:left;
+}
+
+.about h5 {
+    color:black;
+}
+
+.founders-description {
+     border: 1px solid #ccc;
+     max-width: 920px;
+    min-width: 380px;
+    width: 100%;
+    padding: 20px 0 14px 1px;
+    margin-bottom: 80px;
+    margin-top:30px;
+}
+
 @media screen and  (max-width:602px) {
    
 
