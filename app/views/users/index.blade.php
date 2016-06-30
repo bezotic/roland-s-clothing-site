@@ -7,36 +7,35 @@
 @section('content')
  
 		 <div id= 'wall_1' class='image' data-stellar-background-ratio ='0.5'>
-		 	<h2 data-stellar-ratio="0.5">Hello</h2>
 		 </div>
 	
 
 <div class="container">
 	<div class="col-md-4">
 		<div class="index-img">
-			<a href="url"><img src="/img/hattransparent.jpg"></img></a>
+			<a href="{{{action('InventoryController@index')}}}"><img src="/img/hattransparent.jpg"></img></a>
 		</div>
 
 		<div class="thumb-links">
-			<a href="url">purchase</a>
+			<a href="{{{action('InventoryController@index')}}}">purchase</a>
 		</div>
 	</div>
 	<div class="col-md-4">
 		<div class="index-img">
-			<a href="url"><img src="/img/shirttransparent.jpg"></img></a>
+			<a href="{{{action('InventoryController@index')}}}"><img src="/img/shirttransparent.jpg"></img></a>
 		</div>
 
 		<div class="thumb-links">
-			<a href="url">da</a>
+			<a href="{{{action('InventoryController@index')}}}">da</a>
 		</div>
 	</div>
 	<div class="col-md-4">
 		<div class="index-img">
-			<a href="url"><img src="/img/instagram.jpg"></img></a>
+			<a  href="{{{action('InventoryController@index')}}}"><img src="/img/instagram.jpg"></img></a>
 		</div>
 
 		<div class="thumb-links">
-			<a href="url">product</a>
+			<a href="{{{action('InventoryController@index')}}}">product</a>
 		</div>
 	</div>
 

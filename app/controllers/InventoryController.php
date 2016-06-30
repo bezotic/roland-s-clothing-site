@@ -9,7 +9,9 @@ class InventoryController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('inventories.index');
+		
+		$inventory = Inventory::all();
+		return View::make('inventories.index')->with('inventory', $inventory);
 	}
 
 
@@ -54,6 +56,9 @@ class InventoryController extends \BaseController {
 
 		return View::make('inventories.show',['inventory' => $inventory]);
 	}
+
+
+	
 
 
 	/**

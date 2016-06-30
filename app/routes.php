@@ -16,6 +16,10 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
+Route::resource('posts', 'PostController');
+
+Route::get('posts/posts', 'PostController@index');
+
 Route::get('users/index', 'UserController@index');
 
 Route::get('users/about', 'UserController@showAbout');
