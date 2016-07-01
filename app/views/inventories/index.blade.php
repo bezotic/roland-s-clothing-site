@@ -7,8 +7,7 @@
 @section('content')
 
 
-@foreach($inventory as $item)
- @endforeach
+
 	<div class="container">
 		<div>
 			<p class="inventory-title1">UNISEX</p>
@@ -25,14 +24,15 @@
 			<div class="inventory-title3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque expedita accusantium, necessitatibus a non, dolore vel. Quia iusto quis, tempore voluptatibus ab, rerum corporis assumenda autem nulla dicta eaque, accusamus!.</div>
 			<div class="black-line row"></div>
 		</div>
-		
+		@foreach($inventory as $item)
+
 		<div class="col-md-4 inventory">
 			<a href="#"><img class="img-responsive" src="/img/hattransparent.jpg"></a>
 			<a class="description" href="#">BLACK lowkey CAP 100% cotton</a>
-			
+		<p>{{{$item->title}}}</p>	
 			
 		</div>
-			
+	 @endforeach	
 		<div class="col-md-4 inventory">
 			<a href="#"><img class="img-responsive" src="/img/pinkhat.jpg"></a>
 			<a class="description" href="#">PINK lowkey CAP 100% cotton</a>
