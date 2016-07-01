@@ -29,7 +29,7 @@
 		<div class="col-md-4 inventory">
 			<a href="#"><img class="img-responsive" src="{{{$item->image}}}"></a>
 			<a class="description" href="#">{{{$item->title}}}</a>
-		<p>{{{$item->title}}}</p>	
+			
 			
 		</div>
 	 @endforeach	
