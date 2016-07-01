@@ -64,10 +64,10 @@
 			text-align: center;
 		}
 
-		.row {
+		.row  {
 			color: #b3bcb7;
-    		
     		text-align: center;
+
 		}
 
 		.icons {
@@ -96,6 +96,13 @@
 	    color: black;
 		}
 		
+		.log-out {
+			color:black;
+		}
+
+		#white-background {
+			background-color: white !important;
+		}
 
 	</style>
 
@@ -103,13 +110,13 @@
 	@if(Auth::user())
 
 
-	<div class= "row">
+<div id="white-background" class="row">
 	<h1>Blackgapco.</h1>
 		<div class="container">
 			<div class="icons">
+			  <a class='log-out' href="{{{action('UserController@logout')}}}">sign out</a>
 			  <a class="icon" href="#">	<i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a>
 			</div>
-			
 		</div>
 </div>
 
@@ -127,9 +134,13 @@
 		    <div class="collapse navbar-collapse navbar" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav">
 		      	<li><a class="welcome-user">Welcome,{{Auth::user()->first_name}}!</a></li>
-				<li><a class="nav-text" href="{{{action('UserController@showLogin')}}}">log-in/sign-up</a></li>
-
+				
+				<li><a class="nav-text" href="{{{action('UserController@index')}}}">Home</a></li>
+				
 				<li><a class="nav-text" href="{{{action('UserController@showAbout')}}}">About</a></li>
+
+
+				<li><a class="nav-text" href="{{{action('InventoryController@index')}}}">merch</a></li>
 				
 					     
 		    </div><!-- /.navbar-collapse -->
@@ -137,7 +148,7 @@
 	@endif
 
 	@if(!Auth::user())
-		<div class= "row">
+		<div id="white-background" class= "row">
 			<h1>Blackgapco.</h1>
 				<div class="container">
 					<div class="icons">
@@ -160,9 +171,13 @@
 				    <!-- Collect the nav links, forms, and other content for toggling -->
 				    <div class="collapse navbar-collapse navbar" id="bs-example-navbar-collapse-1">
 				      <ul class="nav navbar-nav">
-						<li><a class="nav-text" href="{{{action('UserController@showLogin')}}}">log-in/sign-up</a></li>
+				      	<li><a class="nav-text" href="{{{action('UserController@index')}}}">Home</a></li>
+						
+						<li><a class="nav-text" href="{{{action('UserController@showLogin')}}}">log-in</a></li>
 
 						<li><a class="nav-text" href="{{{action('UserController@showAbout')}}}">About</a></li>
+
+						<li><a class="nav-text" href="{{{action('InventoryController@index')}}}">Merch</a></li>
 						
 							     
 				    </div><!-- /.navbar-collapse -->
