@@ -12,6 +12,7 @@ class SizeDetailTableSeeder extends Seeder {
 		$sizeDetail->size = 'sm';
 		$sizeDetail->amount = 20;
 		$sizeDetail->color = 'blue';
+		$sizeDetail->price = 22.00;
 		$sizeDetail->save();
 
 		$sizeDetail1 = new SizeDetail();
@@ -19,6 +20,7 @@ class SizeDetailTableSeeder extends Seeder {
 		$sizeDetail1->size = 'm';
 		$sizeDetail1->amount = 20;
 		$sizeDetail1->color = 'blue';
+		$sizeDetail1->price = 22.00;
 		$sizeDetail1->save();
 
 		$sizeDetail2 = new SizeDetail();
@@ -26,6 +28,7 @@ class SizeDetailTableSeeder extends Seeder {
 		$sizeDetail2->size = 'lg';
 		$sizeDetail2->amount = 20;
 		$sizeDetail2->color = 'blue';
+		$sizeDetail2->price = 22.00;
 		$sizeDetail2->save();
 
 		$sizeDetail3 = new SizeDetail();
@@ -33,6 +36,7 @@ class SizeDetailTableSeeder extends Seeder {
 		$sizeDetail3->size = 'xl';
 		$sizeDetail3->amount = 20;
 		$sizeDetail3->color = 'blue';
+		$sizeDetail3->price = 22.00;
 		$sizeDetail3->save();
 
 		$sizeDetail4 = new SizeDetail();
@@ -40,6 +44,7 @@ class SizeDetailTableSeeder extends Seeder {
 		$sizeDetail4->size = 'xxl';
 		$sizeDetail4->amount = 20;
 		$sizeDetail4->color = 'blue';
+		$sizeDetail4->price = 22.00;
 		$sizeDetail4->save();
 
 		// inventory id 2
@@ -48,6 +53,7 @@ class SizeDetailTableSeeder extends Seeder {
 		$sizeDetail5->size = 'sm';
 		$sizeDetail5->amount = 20;
 		$sizeDetail5->color = 'blue';
+		$sizeDetail5->price = 22.00;
 		$sizeDetail5->save();
 
 		$sizeDetail6 = new SizeDetail();
@@ -55,6 +61,7 @@ class SizeDetailTableSeeder extends Seeder {
 		$sizeDetail6->size = 'm';
 		$sizeDetail6->amount = 20;
 		$sizeDetail6->color = 'blue';
+		$sizeDetail6->price = 22.00;
 		$sizeDetail6->save();
 
 		$sizeDetail7 = new SizeDetail();
@@ -62,6 +69,7 @@ class SizeDetailTableSeeder extends Seeder {
 		$sizeDetail7->size = 'lg';
 		$sizeDetail7->amount = 20;
 		$sizeDetail7->color = 'blue';
+		$sizeDetail7->price = 22.00;
 		$sizeDetail7->save();
 
 		$sizeDetail8 = new SizeDetail();
@@ -69,6 +77,7 @@ class SizeDetailTableSeeder extends Seeder {
 		$sizeDetail8->size = 'xl';
 		$sizeDetail8->amount = 20;
 		$sizeDetail8->color = 'blue';
+		$sizeDetail8->price = 22.00;
 		$sizeDetail8->save();
 
 		$sizeDetail9 = new SizeDetail();
@@ -76,6 +85,7 @@ class SizeDetailTableSeeder extends Seeder {
 		$sizeDetail9->size = 'xxl';
 		$sizeDetail9->amount = 20;
 		$sizeDetail9->color = 'blue';
+		$sizeDetail9->price = 22.00;
 		$sizeDetail9->save();
 
 		//inventory id 3
@@ -84,6 +94,7 @@ class SizeDetailTableSeeder extends Seeder {
 		$sizeDetail10->size = 'sm';
 		$sizeDetail10->amount = 20;
 		$sizeDetail10->color = 'blue';
+		$sizeDetail10->price = 22.00;
 		$sizeDetail10->save();
 
 		$sizeDetail11 = new SizeDetail();
@@ -91,6 +102,7 @@ class SizeDetailTableSeeder extends Seeder {
 		$sizeDetail11->size = 'm';
 		$sizeDetail11->amount = 20;
 		$sizeDetail11->color = 'blue';
+		$sizeDetail11->price = 22.00;
 		$sizeDetail11->save();
 
 		$sizeDetail12 = new SizeDetail();
@@ -98,6 +110,7 @@ class SizeDetailTableSeeder extends Seeder {
 		$sizeDetail12->size = 'lg';
 		$sizeDetail12->amount = 20;
 		$sizeDetail12->color = 'blue';
+		$sizeDetail12->price = 22.00;
 		$sizeDetail12->save();
 
 		$sizeDetail13 = new SizeDetail();
@@ -105,6 +118,7 @@ class SizeDetailTableSeeder extends Seeder {
 		$sizeDetail13->size = 'xl';
 		$sizeDetail13->amount = 20;
 		$sizeDetail13->color = 'blue';
+		$sizeDetail13->price = 22.00;
 		$sizeDetail13->save();
 
 		$sizeDetail14 = new SizeDetail();
@@ -112,6 +126,7 @@ class SizeDetailTableSeeder extends Seeder {
 		$sizeDetail14->size = 'xxl';
 		$sizeDetail14->amount = 20;
 		$sizeDetail14->color = 'blue';
+		$sizeDetail14->price = 22.00;
 		$sizeDetail14->save();
 		//inventory id 4
 		
@@ -120,6 +135,7 @@ class SizeDetailTableSeeder extends Seeder {
 		$sizeDetail15->size = 'sm';
 		$sizeDetail15->amount = 20;
 		$sizeDetail15->color = 'blue';
+		$sizeDetail15->price = 22.00;
 		$sizeDetail15->save();
 
 		$sizeDetail16 = new SizeDetail();
@@ -127,6 +143,7 @@ class SizeDetailTableSeeder extends Seeder {
 		$sizeDetail16->size = 'm';
 		$sizeDetail16->amount = 20;
 		$sizeDetail16->color = 'blue';
+		$sizeDetail16->price = 22.00;
 		$sizeDetail16->save();
 
 		$sizeDetail17 = new SizeDetail();
@@ -134,6 +151,7 @@ class SizeDetailTableSeeder extends Seeder {
 		$sizeDetail17->size = 'lg';
 		$sizeDetail17->amount = 20;
 		$sizeDetail17->color = 'blue';
+		$sizeDetail17->price = 22.00;
 		$sizeDetail17->save();
 
 		$sizeDetail18 = new SizeDetail();
@@ -141,6 +159,7 @@ class SizeDetailTableSeeder extends Seeder {
 		$sizeDetail18->size = 'xl';
 		$sizeDetail18->amount = 20;
 		$sizeDetail18->color = 'blue';
+		$sizeDetail18->price = 22.00;
 		$sizeDetail18->save();
 
 		$sizeDetail19 = new SizeDetail();
@@ -148,6 +167,7 @@ class SizeDetailTableSeeder extends Seeder {
 		$sizeDetail19->size = 'xxl';
 		$sizeDetail19->amount = 20;
 		$sizeDetail19->color = 'blue';
+		$sizeDetail19->price = 22.00;
 		$sizeDetail19->save();
 
 		//inventory id 5
@@ -157,6 +177,7 @@ class SizeDetailTableSeeder extends Seeder {
 		$sizeDetail20->size = 'sm';
 		$sizeDetail20->amount = 20;
 		$sizeDetail20->color = 'blue';
+		$sizeDetail20->price = 22.00;
 		$sizeDetail20->save();
 
 		$sizeDetail21 = new SizeDetail();
@@ -164,6 +185,7 @@ class SizeDetailTableSeeder extends Seeder {
 		$sizeDetail21->size = 'sm';
 		$sizeDetail21->amount = 20;
 		$sizeDetail21->color = 'blue';
+		$sizeDetail21->price = 22.00;
 		$sizeDetail21->save();
 
 		$sizeDetail22 = new SizeDetail();
@@ -171,6 +193,7 @@ class SizeDetailTableSeeder extends Seeder {
 		$sizeDetail22->size = 'sm';
 		$sizeDetail22->amount = 20;
 		$sizeDetail22->color = 'blue';
+		$sizeDetail22->price = 22.00;
 		$sizeDetail22->save();
 
 		$sizeDetail23 = new SizeDetail();
@@ -178,6 +201,7 @@ class SizeDetailTableSeeder extends Seeder {
 		$sizeDetail23->size = 'sm';
 		$sizeDetail23->amount = 20;
 		$sizeDetail23->color = 'blue';
+		$sizeDetail23->price = 22.00;
 		$sizeDetail23->save();
 
 		$sizeDetail24 = new SizeDetail();
@@ -185,6 +209,7 @@ class SizeDetailTableSeeder extends Seeder {
 		$sizeDetail24->size = 'sm';
 		$sizeDetail24->amount = 20;
 		$sizeDetail24->color = 'blue';
+		$sizeDetail24->price = 22.00;
 		$sizeDetail24->save();
 
 
