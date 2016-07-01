@@ -27,27 +27,13 @@
 		@foreach($inventory as $item)
 
 		<div class="col-md-4 inventory">
-			<a href="#"><img class="img-responsive" src="/img/hattransparent.jpg"></a>
-			<a class="description" href="#">BLACK lowkey CAP 100% cotton</a>
-		<p>{{{$item->title}}}</p>	
+			<a href="#"><img class="img-responsive" src="{{{$item->image}}}"></a>
+			<a class="description" href="#">{{{$item->title}}}</a>
+			
 			
 		</div>
 	 @endforeach	
-		<div class="col-md-4 inventory">
-			<a href="#"><img class="img-responsive" src="/img/pinkhat.jpg"></a>
-			<a class="description" href="#">PINK lowkey CAP 100% cotton</a>
-		</div>
-		<div class="col-md-4 inventory">
-			<a href="#"><img class="img-responsive" src="/img/whitehat.jpg"></a>
-			<a class="description" href="#">WHITE lowkey CAP 100% cotton</a>
-		</div>
-	<div class='bottom-portion'>
-		<div class="col-md-4 inventoryb">
-			<a href="#"><img class="img-responsive" src="/img/hoodie.jpg"></a>
-			<a class="description" href="#">T-02 BGC REVIVAL HOODIE 100% cotton</a>
-		</div>
-
-	</div>
+		
 
 		<div class="col-sm-12 col-md-12 line-break">
 		
