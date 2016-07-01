@@ -9,7 +9,9 @@ class InventoryController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('inventories.index');
+		
+		$inventory = Inventory::all();
+		return View::make('inventories.index')->with('inventory', $inventory);
 	}
 
 
@@ -54,6 +56,9 @@ class InventoryController extends \BaseController {
 
 		return View::make('inventories.show',['inventory' => $inventory]);
 	}
+
+
+	
 
 
 	/**
@@ -105,10 +110,10 @@ class InventoryController extends \BaseController {
 		$inventory->delete();
 		Session::flash('successMessage', "Size has been deleted");
 
-		return Redirect::action('UserController@index')
+		return Redirect::action('UserController@index');
 	}
 
-	public function validateAndSave($inventory);
+	public function validateAndSave()
 	{
 		$validator = Validator::make(Input::all(), Inventory::$rules);
 
@@ -127,5 +132,7 @@ class InventoryController extends \BaseController {
 			Session::flash('successMessage', "Successfully saved!");
 	}
 
+
+}
 
 }

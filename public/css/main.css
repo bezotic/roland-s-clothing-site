@@ -20,6 +20,55 @@
 
 /*The rest of the CSS goes here*/
 
+.black-line {
+    border-top: 3px solid #efefef;
+}
+
+.inventory-title1 {
+    text-align: center;
+    font-size: 12px;
+    color: #6A6A6A;
+    margin-top: 3em;
+    font-family: 'Oswald', sans-serif;
+}
+
+.inventory-title2 p{
+    text-align: center;
+    font-weight: 300;
+    font-size: 32px;
+    font-family: 'Oswald', sans-serif;
+}
+
+.borderline {
+    border-top: 3px solid #AAA;
+    width: 33%;
+}
+
+.borderline2 {
+    border-top: 3px solid #FFF;
+    width: 30%;
+    margin-left: 10px;
+}
+
+.borderline3 {
+    border-top: 3px solid #C27D50;
+    width: 100%;
+    margin-top: 4em;
+}
+
+.blackgapcocreaters {
+    text-align: center;
+    font-weight: 100;
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
+}
+
+.inventory-title3 {
+    text-align: center;
+    margin-bottom: 3em;
+    margin-top: 3em;
+}
+
 .index-img img {
     height: 250px;
     width: 350px;
@@ -47,6 +96,12 @@ img:hover {
     background:black;
 }
 
+.image_2 {
+    height:1200px;
+    width:100%;
+    background:black;
+}
+
 .image h2 {
     position:fixed;
 }
@@ -68,6 +123,8 @@ img:hover {
     background: url(/img/shirttransparent.jpg) repeat-x;
     background-attachment: fixed;
 }
+
+
 
 
 .row {
@@ -244,15 +301,86 @@ p.whyblackco2 {
     margin-top: 30px;
 }
 
-@media screen and  (max-width:602px) {
-   
+.about h1 {
+    margin-left: 37%;
+    text-decoration: underline;
+    margin-top: 1em;
+}
 
-  .image {
+.about img {
+    height:250px;
+    float:left;
+    border: 3px solid #f4b690;
+}
+
+.about h5 {
+    color:black;
+}
+
+.spacer {
+    letter-spacing: 3px;
+}
+
+.founders-description {
+    border: 1px solid #ccc;
+    max-width: 1000px;
+    min-width: 380px;
+    width: 100%;
+    margin-bottom: 80px;
+    margin-top:30px;
+    background-color: #C27D50;
+    padding-bottom: 40px;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+
+}
+
+.founders-description h5{
     
-    display:none;
+    
+    background-color: #C27D50;
+    color: white; 
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+}
 
-   
+.founders-description h1{
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 100;
+    text-decoration: none;
+    
+}
 
+.inventory {
+  padding-top:4em;
+  padding-left:2em;
+  padding-bottom: 4em;
+}
+
+.inventoryb {
+  padding-left:2em;
+  padding-bottom: 6em;
+}
+
+.inventory img {
+    height:250px;
+}
+
+.inventory a {
+    color:grey;
+    text-transform: uppercase;
+    text-align: center;
+    left:2em;
+}
+
+
+
+@media screen and (max-width: 990px) {
+    .borderline2 {
+        width:30%;
+       left:34%;
+    }
 }
 
 @media screen and  (max-width:757px) {
@@ -261,14 +389,44 @@ p.whyblackco2 {
   
     }
 
+  
+
 }
 
+@media screen and  (max-width:602px) {
+   
+
+  .image {
+    
+    display:none;
+
+  } 
+
+  .borderline2 {
+        width:30%;
+       left:59%;
+    }
+
+
+
+ 
+
+}
 
 @media screen and  (max-width:400px) {
     .social-buttons {
         float:none;
   
     }
+
+    .borderline2 {
+        left:35%;
+        width:30%;
+    }
+
+
+
+   
 
 }
 
@@ -287,7 +445,6 @@ nav {
 .h4 a{
     color: #4698AD !important;
 }
-
 
 
 

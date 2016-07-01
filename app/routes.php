@@ -16,6 +16,10 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
+Route::resource('posts', 'PostController');
+
+Route::get('posts/posts', 'PostController@index');
+
 Route::get('users/index', 'UserController@index');
 
 Route::get('users/about', 'UserController@showAbout');
@@ -27,6 +31,8 @@ Route::get('users/create', 'UserController@create');
 Route::post('users/create', 'UserController@validateAndSave');
 
 Route::post('users/login', 'UserController@doLogin');
+
+Route::get('users/logout', 'UserController@logout');
 
 Route::resource('users', 'UserController');
 
