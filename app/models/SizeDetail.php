@@ -8,7 +8,8 @@ class SizeDetail extends BaseModel {
 	 public static $rules = array(
 	    'size'     => 'required',
 	    'amount'   => 'required',
-	    'color'    => 'required'
+	    'color'    => 'required',
+	    'price'    => 'required'
 	    	
 	);
 

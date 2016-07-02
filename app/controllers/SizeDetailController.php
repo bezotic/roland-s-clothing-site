@@ -120,6 +120,8 @@ class SizeDetailController extends \BaseController {
 	    } else {
 			$sizeDetail->size = Input::get('size');
 			$sizeDetail->amount = Input::get('amount');
+			$sizeDetail->color = Input::get('color');
+			$sizeDetail->price = Input::get('price');
 			$sizeDetail->save();
 			
 			Session::flash('successMessage', "Successfully saved!");
