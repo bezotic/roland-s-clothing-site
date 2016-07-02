@@ -10,7 +10,8 @@ class InventoryController extends \BaseController {
 	public function index()
 	{
 		
-		$inventory = Inventory::all();
+		$inventory = Inventory::paginate(8);
+
 		return View::make('inventories.index')->with('inventory', $inventory);
 	}
 

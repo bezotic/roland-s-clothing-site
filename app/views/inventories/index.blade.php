@@ -25,15 +25,17 @@
 			<div class="black-line row"></div>
 		</div>
 		@foreach($inventory as $item)
-
+		
 		<div class="col-md-4 inventory">
 			<a href="#"><img class="img-responsive" src="{{{$item->image}}}"></a>
 			<a class="description" href="#">{{{$item->title}}}</a>
-			
+			@foreach($item->size_details as $details)
+				<p>{{ $details->size }}: {{ $details->price }}</p>
+			@endforeach
 			
 		</div>
-	 @endforeach	
-		
+	 @endforeach
+	 
 
 		<div class="col-sm-12 col-md-12 line-break">
 		
