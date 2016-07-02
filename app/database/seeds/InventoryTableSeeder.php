@@ -10,7 +10,7 @@ class InventoryTableSeeder extends Seeder {
 		$inventory = new Inventory();
 		$inventory->title = 'short sleeve shirt';
 		$inventory->description = 'Perfect for cold weather';
-		$inventory->image = 'http://placehold.it/160x160';
+		$inventory->image = '/img/pinkhat.jpg';
 		$inventory->type = 'short sleeve';
 		$inventory->save();
 
