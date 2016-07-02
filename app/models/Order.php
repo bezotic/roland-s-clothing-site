@@ -8,7 +8,9 @@ class Order extends BaseModel {
 
 		public static $rules = [
 						'total' => 'required',
-						'address'=> 'required'
+						'address' => 'required',
+						'zipcode' => 'required',
+						'state' => 'required',
 						
 						];
 
