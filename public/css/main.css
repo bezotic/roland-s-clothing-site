@@ -374,6 +374,11 @@ p.whyblackco2 {
     left:2em;
 }
 
+.small-images{
+    float:left;
+    position: relative;
+}
+
 /*inventories.show page*/
 
 .content-wrapper-left {
@@ -394,15 +399,31 @@ p.whyblackco2 {
     height: auto;
     float: left;
 }
-        div.content_product_details .select-style{
+.size-details-dropdown {
     border: 2px solid #000;
-    width: 100%;
     overflow: hidden;
     background-color: #fff;
-    background: #fff url("/asos-web/images/buttons/combo-arrows.png") no-repeat right 15px;
+    background: #fff url(/img/combo-arrows.png) no-repeat right 15px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+   -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+     width:15em;
+     margin-top: 5em;
+     margin-right: 10em;
+
+}
+
+.confirm-btn {
+    background-color: #00aa5b !important;
+    color: #fff !important;
+     -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  width:15em;
+  margin-right:10em;
+  
+  text-transform: uppercase;
 }
 
 

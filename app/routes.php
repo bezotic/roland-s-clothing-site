@@ -48,6 +48,7 @@ Route::get('/', 'UserController@index');
 
 Route::resource('inventories', 'InventoryController');
 
+Route::post('inventories/show', 'SizeDetailController@validateAndPurchase');
 
 
 

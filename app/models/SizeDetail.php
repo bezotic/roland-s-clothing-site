@@ -13,6 +13,12 @@ class SizeDetail extends BaseModel {
 	    	
 	);
 
+	 public static $purchase = array(
+	 	'size'     => 'required',
+	 	'price'    => 'required'	
+
+	 );
+
 	 public function orderItems()
 	 {
 	 	return $this->hasMany('OrderItem');
