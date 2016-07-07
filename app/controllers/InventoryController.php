@@ -59,6 +59,63 @@ class InventoryController extends \BaseController {
 	}
 
 
+	public function showAdminInventory() {
+
+		$inventory = Inventory::all();
+
+		$data = ['inventory' => $inventory];
+
+		
+		return View::make('admin.adminInventory')->with($data);
+
+	}
+
+	public function storeAdminInventory()
+	{
+		$inventory = new Inventory();
+
+		return $this->validateAndSaveInventory($inventory);
+		
+	}
+
+
+	private function validateAndSaveInventory($inventory){
+
+		// create the validator
+	    $validator = Validator::make(Input::all(), Inventory::$rules);
+
+	    // attempt validation
+	    if ($validator->fails()) {
+
+	       Session::flash('errorMessage',"Unable to save inventory entry.");	
+
+	       return Redirect::back()->withInput()->withErrors($validator);
+
+	    } else {
+	      
+			$inventory->title = Input::get('title');
+
+			$inventory->description = Input::get('description');
+
+			$inventory->description = Input::get('image');
+
+			$inventory->type = Input::get('type');
+
+			$inventory->save();
+			
+			
+			Session::flash('successMessage',"New inventory was added successfully.");
+
+			Log::info('Log message', array('title' => $inventory->title, 'description' => $inventory->description, 'type' => $inventory->type));
+			
+			return Redirect::action('UserController@index');
+	    }
+
+	}
+
+
+
+
 	
 
 

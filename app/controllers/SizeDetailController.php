@@ -12,6 +12,15 @@ class SizeDetailController extends \BaseController {
 		return View::make('sizeDetails.index');
 	}
 
+	public function showAdminSizeDetails()
+	{
+
+		$b = SizeDetail::all();
+
+		$data = ['sizeDetail' => $b];
+
+		return View::make('admin.adminSizeDetails')->with($data);;
+	}
 
 	/**
 	 * Show the form for creating a new resource.
