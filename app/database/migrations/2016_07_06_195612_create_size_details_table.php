@@ -12,13 +12,14 @@ class CreateSizeDetailsTable extends Migration {
 	 */
 public function up()
 	{
-		Schema::create('sizeDetails',function($table)
+		Schema::create('sizeDetails',function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->integer('inventory_id')->unsigned();
 			$table->foreign('inventory_id')->references('id')->on('inventories');
 			$table->string('size',8);
 			$table->integer('amount');
+			$table->float('price');
 			$table->string('color');
 			$table->timestamps();
 

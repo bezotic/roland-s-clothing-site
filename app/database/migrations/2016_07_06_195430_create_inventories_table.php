@@ -3,23 +3,24 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOrdersTable extends Migration {
+class CreateInventoriesTable extends Migration {
 
 	/**
 	 * Run the migrations.
 	 *
 	 * @return void
 	 */
-public function up()
+	public function up()
 	{
-		Schema::create('orders',function($table)
+		Schema::create('inventories', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('user_id')->unsigned();
-			$table->foreign('user_id')->references('id')->on('users');
-			$table->string('address');
-			$table->float('total');
+			$table->string('title',255);
+			$table->text('description');
+			$table->string('image');
+			$table->string('type',255);
 			$table->timestamps();
+			
 
 		});
 	}
@@ -31,7 +32,7 @@ public function up()
 	 */
 	public function down()
 	{
-		Schema::drop('orders');
+		Schema::drop('inventories');
 	}
 
 }

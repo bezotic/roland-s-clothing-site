@@ -22,6 +22,14 @@ Route::get('posts/posts', 'PostController@index');
 
 Route::get('users/index', 'UserController@index');
 
+Route::get('adminInventory', 'InventoryController@showAdminInventory');
+
+Route::post('saveAdminInventory', 'InventoryController@storeAdminInventory');
+
+Route::get('adminSizeDetails', 'SizeDetailController@showAdminSizeDetails');
+
+Route::get('adminStoreSizeDetails', 'SizeDetailController@store');
+
 Route::get('users/about', 'UserController@showAbout');
 
 Route::get('users/login', 'UserController@showLogin');

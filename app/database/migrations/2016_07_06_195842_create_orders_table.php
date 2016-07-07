@@ -3,30 +3,25 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostsTable extends Migration {
+class CreateOrdersTable extends Migration {
 
 	/**
 	 * Run the migrations.
 	 *
 	 * @return void
 	 */
-	public function up()
+public function up()
 	{
-		Schema::create('posts', function($table)
+		Schema::create('orders',function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('body');
-			$table->string('description');
-			$table->string('title', 100);
-			$table->string('image');
-			$table->string('size',8);
-			$table->integer('amount');
-			$table->string('color');
-			$table->float('cost');
 			$table->integer('user_id')->unsigned();
 			$table->foreign('user_id')->references('id')->on('users');
-
-			
+			$table->string('address');
+			$table->integer('zipcode')->unsigned();
+			$table->string('state',2);
+			$table->float('total');
+			$table->timestamps();
 
 		});
 	}
@@ -38,7 +33,7 @@ class CreatePostsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('posts');
+		Schema::drop('orders');
 	}
 
 }
