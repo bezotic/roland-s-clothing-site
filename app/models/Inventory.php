@@ -9,7 +9,8 @@ class Inventory extends BaseModel {
 						'title' => 'required',
 						'description' => 'required',
 						'image' => 'required',
-						'type' => 'required'
+						'type' => 'required',
+						'price' => 'required'
 						
 						];
 

@@ -1,6 +1,7 @@
 <?php
 
-class SizeDetailController extends \BaseController {
+class SizeDetailController extends \BaseController 
+{
 
 	/**
 	 * Display a listing of the resource.
@@ -118,7 +119,7 @@ class SizeDetailController extends \BaseController {
 
 	}
 
-	public function validateAndSave($sizeDetails)
+	public function validateAndSave($sizeDetail)
 	{
 		$validator = Validator::make(Input::all(), SizeDetail::$rules);
 
@@ -126,7 +127,7 @@ class SizeDetailController extends \BaseController {
 	        // validation failed, redirect to the post create page with validation errors and old inputs
 	        Session::flash('errorMessage', "Unable to save, see errors");
 	        return Redirect::back()->withInput()->withErrors($validator);
-	    } else {
+	      } else {
 			$sizeDetail->size = Input::get('size');
 			$sizeDetail->amount = Input::get('amount');
 			$sizeDetail->color = Input::get('color');
@@ -134,12 +135,30 @@ class SizeDetailController extends \BaseController {
 			$sizeDetail->save();
 			
 			Session::flash('successMessage', "Successfully saved!");
+		    }
+    }
+
+	public function validateAndPurchase($sizeDetail)
+	{
+		$validator = Validator::make(Input::all(), SizeDetail::$purchase);
+
+		  if ($validator->fails()) {
+	        // validation failed, redirect to the post create page with validation errors and old inputs
+	        Session::flash('errorMessage', "Unable to save, see errors");
+	        return Redirect::back()->withInput()->withErrors($validator);
+	        return Redirect::action('InventoryController@show');
+	    } else {
+			$sizeDetail->size = Input::get('size');
+			$sizeDetail->price = Input::get('price');
+			$sizeDetail->save();
+			
+			Session::flash('successMessage', "Successfully saved!");
+			return Redirect::action('InventoryController@show');
 	}
 
-	
 
 
 
+	}
 
-}
 }
