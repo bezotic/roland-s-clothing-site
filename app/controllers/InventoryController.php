@@ -1,6 +1,6 @@
 <?php
 
-class InventoryController extends \BaseController {
+class InventoryController extends BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -52,7 +52,7 @@ class InventoryController extends \BaseController {
 
 		if(is_null($inventory)){
 
-			return $this->inventoryNotFound();
+			App::abort(404);
 		}
 
 		return View::make('inventories.show',['inventory' => $inventory]);
@@ -117,6 +117,7 @@ class InventoryController extends \BaseController {
 
 
 	
+
 
 
 	/**
