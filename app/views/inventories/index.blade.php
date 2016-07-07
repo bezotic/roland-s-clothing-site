@@ -27,8 +27,8 @@
 		@foreach($inventory as $item)
 		
 		<div class="col-md-4 inventory">
-			<a href="#"><img class="img-responsive" src="{{{$item->image}}}"></a>
-			<a class="description" href="#">{{{$item->title}}}</a>
+			<a href="{{{action('InventoryController@show', $item->id)}}}"><img class="img-responsive" src="{{{$item->image}}}"></a>
+			<a class="description" href="">{{{$item->title}}}</a>
 			@foreach($item->size_details as $details)
 				<p>{{ $details->size }}: {{ $details->price }}</p>
 			@endforeach

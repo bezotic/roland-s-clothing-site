@@ -36,7 +36,14 @@ Route::get('users/logout', 'UserController@logout');
 
 Route::resource('users', 'UserController');
 
+Route::get('/', 'UserController@index');
+
 Route::resource('inventories', 'InventoryController');
+
+
+
+
+
 
 Route::resource('sizeDetails', 'SizeDetailController');
 
