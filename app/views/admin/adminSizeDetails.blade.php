@@ -23,18 +23,24 @@
 				        </tr>
 				    </thead>
 				    <tbody id="insertProducts">
+				    	{{ Form::model($sizeDetail,array('action' => array('SizeDetailController@update'),'method' =>'PUT'))}}
 
-						@foreach($sizeDetail as $details)
-							
-								<tr><td>{{{$details->id}}}</td><td>{{{$details->inventory_id}}}</td><td>{{{$details->size}}}</td><td>{{{$details->amount}}}</td><td>{{{$details->color}}}</td><td>{{{$details->created_at}}}</td><td>{{{$details->updated_at}}}</td></tr>
-							
-	    				@endforeach
+							@foreach($sizeDetail as $details)
+								
+									<tr><td>{{{$details->id}}}</td><td>{{Form::text('inventory_id',$details->inventory_id)}}</td><td>{{Form::text('size',$details->size)}}</td><td>{{Form::text('amount',$details->amount)}}</td><td>{{Form::text('color',$details->color)}}</td><td>{{{$details->created_at}}}</td><td>{{{$details->updated_at}}}</td></tr>
+								
+		    				@endforeach
 
 				    </tbody>
-				</table> <br>
+				</table>
+							<button type="submit" class="btn btn-default" name="save" value="save">Submit</button>
+							{{Form::close()}}
 			</div>
-
+			<br>
+			<br>
 			<div class="black-line row"></div>
+
+			<p class="inventory-title1">Add New Merchandise</p>
 
 			 <div class="col-md-12 account-txt">
                     {{ Form::open(['action' => 'SizeDetailController@store', 'method'=>'POST', 'class'=>'form-horizontal']) }}
@@ -59,7 +65,7 @@
                         @endif
 
                         <label for="amount">amount:</label>
-                        <textarea  type="text" class="form-control form1"  name="amount" aria-describedby="basic-addon1">amount</textarea><br>
+                        <textarea  type="text" class="form-control form1"  name="amount" aria-describedby="basic-addon1"></textarea><br>
 
 
                         @if($errors->has('color'))
