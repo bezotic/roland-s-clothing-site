@@ -426,6 +426,10 @@ p.whyblackco2 {
   text-transform: uppercase;
 }
 
+.select-disabled {
+    //display:none;
+}
+
 
 /*inventories.show page ends*/
 

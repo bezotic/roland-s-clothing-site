@@ -1,6 +1,6 @@
 <?php
 
-class SizeDetailController extends \BaseController 
+class SizeDetailController extends BaseController 
 {
 
 	/**
@@ -45,6 +45,7 @@ class SizeDetailController extends \BaseController
 		Log::info(Input::all());
 		return $this->validateAndSave($sizeDetails);
 	}
+
 
 
 	/**
@@ -119,46 +120,47 @@ class SizeDetailController extends \BaseController
 
 	}
 
-	public function validateAndSave($sizeDetail)
+	public function validateAndSave($sizeDetails)
 	{
+		
 		$validator = Validator::make(Input::all(), SizeDetail::$rules);
 
 		  if ($validator->fails()) {
 	        // validation failed, redirect to the post create page with validation errors and old inputs
 	        Session::flash('errorMessage', "Unable to save, see errors");
 	        return Redirect::back()->withInput()->withErrors($validator);
+	        var_dump($_POST);
 	      } else {
-			$sizeDetail->size = Input::get('size');
-			$sizeDetail->amount = Input::get('amount');
-			$sizeDetail->color = Input::get('color');
-			$sizeDetail->price = Input::get('price');
-			$sizeDetail->save();
+			$sizeDetails->size = Input::get('size');
+			$sizeDetails->amount = Input::get('amount');
+			$sizeDetails->color = Input::get('color');
+			$sizeDetails->price = Input::get('price');
+			$sizeDetails->save();
 			
 			Session::flash('successMessage', "Successfully saved!");
 		    }
     }
 
-	public function validateAndPurchase($sizeDetail)
+    public function validateAndPurchase()
 	{
+		
 		$validator = Validator::make(Input::all(), SizeDetail::$purchase);
 
 		  if ($validator->fails()) {
 	        // validation failed, redirect to the post create page with validation errors and old inputs
 	        Session::flash('errorMessage', "Unable to save, see errors");
 	        return Redirect::back()->withInput()->withErrors($validator);
-	        return Redirect::action('InventoryController@show');
-	    } else {
-			$sizeDetail->size = Input::get('size');
-			$sizeDetail->price = Input::get('price');
-			$sizeDetail->save();
+	        var_dump($_POST);
+	      } else {
+	      	$sizeDetails = new SizeDetail;
+			$sizeDetails->size = Input::get('size');
+			$sizeDetails->save();
+			
 			
 			Session::flash('successMessage', "Successfully saved!");
-			return Redirect::action('InventoryController@show');
-	}
+		    }
+    }
 
-
-
-
-	}
+	
 
 }

@@ -14,8 +14,7 @@ class SizeDetail extends BaseModel {
 	);
 
 	 public static $purchase = array(
-	 	'size'     => 'required',
-	 	'price'    => 'required'	
+	 	'size'     => 'required',	
 
 	 );
 
