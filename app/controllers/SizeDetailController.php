@@ -129,8 +129,9 @@ class SizeDetailController extends BaseController
 	        // validation failed, redirect to the post create page with validation errors and old inputs
 	        Session::flash('errorMessage', "Unable to save, see errors");
 	        return Redirect::back()->withInput()->withErrors($validator);
-	        var_dump($_POST);
+	        
 	      } else {
+	      	var_dump($_POST);
 			$sizeDetails->size = Input::get('size');
 			$sizeDetails->amount = Input::get('amount');
 			$sizeDetails->color = Input::get('color');
