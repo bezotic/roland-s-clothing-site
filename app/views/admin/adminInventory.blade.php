@@ -1,8 +1,24 @@
+
 @extends('layouts.masters')
 
 @section('top-script')
 
 <style>
+	#admin-1, #admin-2{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.btn{
+		margin-bottom: 18px;
+	}
+
+	.noneditable{
+		background-color: lightgray;
+	}
+
+
 
 </style>
 
@@ -15,29 +31,21 @@
 			<p class="inventory-title1">Edit Store Inventory</p>
 			<div class="inventory-title2">
 
-					<table id="products" class="table">
-					    <thead>
-					        <tr>
-					            <th id="id">Id</th>
-					            <th id="title">Title</th>
-					            <th id="description">Description</th>
-					            <th id="type">Type</th>
-					            <th id="created">Created on</th>
-					            <th id="updated">Updated On</th>
-					        </tr>
-					    </thead>
+			    <div id="insertProducts">
 
-					    <tbody id="insertProducts">
-					    	{{ Form::model($inventory,array('action' => array('InventoryController@update'),'method' =>'PUT'))}}
-					     	
-								@foreach($inventory as $item)
-								<tr><td>{{{$item->id}}}</td><td>{{Form::text('title',$item->title)}}</td><td>{{Form::text('description',$item->description)}}</td><td>{{Form::text('type',$item->type)}}</td><td>{{{$item->created_at}}}</td><td>{{{$item->updated_at}}}</td></tr>
-			    				@endforeach
-			    			 	
-					    </tbody>
-					</table>
+			    	
+			     		<div id="admin-2">
+						@foreach($inventory as $item)
+						{{ Form::model($inventory,array('action' => array('InventoryController@updateAdminInventory',$item->id),'method' =>'PUT'))}}
+								{{Form::textarea('id',$item->id,['class'=> 'noneditable', 'rows' => '1', 'cols' => '2', 'disabled' => 'disabled'])}} {{Form::textarea('title',$item->title,['rows' => '1', 'cols'=> '15'])}} {{Form::textarea('description',$item->description,['rows' => '1', 'cols'=> '25'])}} {{Form::textarea('image',$item->image,['rows' => '1', 'cols'=> '25'])}}{{Form::textarea('type',$item->type,['rows' => '1' , 'cols'=> '20'])}} {{Form::textarea('created_at',$item->created_at,['class'=> 'noneditable', 'rows' => '1', 'cols'=> '20' ,'disabled' => 'disabled'])}} {{Form::textarea('updated_at',$item->updated_at,['class'=> 'noneditable', 'rows' => '1', 'cols'=> '20','disabled' => 'disabled'])}}
 								<button type="submit" class="btn btn-default" name="save" value="save">Submit</button>
-							{{Form::close()}}
+						{{Form::close()}}
+						</div>
+						<br>
+	    				@endforeach
+
+	    			 	
+			    </div>
 			
 			</div>
 			<br>
@@ -89,6 +97,9 @@
 @stop
 
 @section('bottom-script')
+<script type="text/javascript">
+	
+</script>
 
 
 @stop

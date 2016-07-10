@@ -74,12 +74,13 @@ class InventoryController extends BaseController {
 	{
 		$inventory = new Inventory();
 
-		return $this->validateAndSaveInventory($inventory);
+		return $this->validateAndSave($inventory);
 		
 	}
 
 
-	private function validateAndSaveInventory($inventory){
+
+	private function validateAndSave($inventory){
 
 		// create the validator
 	    $validator = Validator::make(Input::all(), Inventory::$rules);
@@ -107,17 +108,15 @@ class InventoryController extends BaseController {
 			Session::flash('successMessage',"New inventory was added successfully.");
 
 			Log::info('Log message', array('title' => $inventory->title, 'description' => $inventory->description, 'type' => $inventory->type));
+
 			
-			return Redirect::action('UserController@index');
-	    }
-
+			$data = ['inventory' => $inventory];
+		
+			return View::make('admin.adminInventory')->with($data);
+		}
+			
+			
 	}
-
-
-
-
-	
-
 
 
 	/**
@@ -140,14 +139,26 @@ class InventoryController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	
+	public function inventoryNotFound(){
+
+
+		return App::abort(404);
+	}
+
+	
+	public function updateAdminInventory($id)
 	{
+
 		$inventory = Inventory::find($id);
-			if (is_null($inventory)) {
-			App::abort(404);
-			} else {
-				return $this->validateAndSave($inventory);
-			}
+
+		if(is_null($inventory)){
+
+			return $this->inventoryNotFound();
+		}
+
+		return $this->validateAndSave($inventory);
+
 	}
 
 
@@ -172,26 +183,5 @@ class InventoryController extends BaseController {
 		return Redirect::action('UserController@index');
 	}
 
-	public function validateAndSave()
-	{
-		$validator = Validator::make(Input::all(), Inventory::$rules);
-
-		  if ($validator->fails()) {
-	        // validation failed, redirect to the post create page with validation errors and old inputs
-	        Session::flash('errorMessage', "Unable to save, see errors");
-	        return Redirect::back()->withInput()->withErrors($validator);
-	    } else {
-			$inventory->title = Input::get('title');
-			$inventory->description = Input::get('description');
-			$inventory->image = Input::get('image');
-			$inventory->type = Input::get('type');
-			$inventory->save();
-			
-			
-			Session::flash('successMessage', "Successfully saved!");
-	}
-
-
-}
-
+	
 }
