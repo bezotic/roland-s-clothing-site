@@ -10,7 +10,7 @@ class InventoryController extends BaseController {
 	public function index()
 	{
 		
-		$inventory = Inventory::paginate(8);
+		$inventory = Inventory::all();
 
 		return View::make('inventories.index')->with('inventory', $inventory);
 	}
@@ -49,6 +49,7 @@ class InventoryController extends BaseController {
 	public function show($id)
 	{
 		$inventory = Inventory::find($id);
+
 
 		if(is_null($inventory)){
 

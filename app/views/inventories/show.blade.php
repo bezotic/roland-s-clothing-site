@@ -31,7 +31,7 @@
 	 	<div  class="col-md-4">
        <select class='size-details-dropdown btn btn-default' name='size'>
 		  @foreach($inventory->size_details as $details)
-		  <option value='size' name='size'>{{{$details->size}}}: ${{{$details->price}}} </option>
+		  <option name='size' >{{{$details->size}}} </option>
 		  @endforeach
 		</select>
 		
@@ -49,7 +49,7 @@
 
 
 {{Form::close()}}
-<?= var_dump($_POST)?>
+
 @stop
 
 @section('bottom-script')
