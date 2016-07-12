@@ -26,7 +26,7 @@ Route::get('adminInventory', 'InventoryController@showAdminInventory');
 
 Route::post('saveAdminInventory', 'InventoryController@storeAdminInventory');
 
-Route::put('updateAdminInventory/{$id}', 'InventoryController@updateAdminInventory');
+Route::put('admininventory/{id}', 'InventoryController@updateAdminInventory');
 
 Route::get('adminSizeDetails', 'SizeDetailController@showAdminSizeDetails');
 

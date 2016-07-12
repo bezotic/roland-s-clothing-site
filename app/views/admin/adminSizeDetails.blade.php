@@ -32,7 +32,7 @@
 
 	     			<div id="admin-2">
 					
-					{{ Form::model($sizeDetail,array('action' => array('SizeDetailController@update'),'method' =>'PUT'))}}
+					{{ Form::model($sizeDetail,array('action' => array('SizeDetailController@update',$details->id),'method' =>'PUT'))}}
 
 						{{Form::textarea('inventory_id',$details->inventory_id,['class'=> 'noneditable', 'rows' => '1', 'cols' => '2', 'disabled' => 'disabled'])}} {{Form::textarea('size',$details->size,['rows' => '1', 'cols'=> '15'])}}{{Form::textarea('amount',$details->amount,['rows' => '1', 'cols'=> '25'])}}{{Form::textarea('color',$details->color,['rows' => '1' , 'cols'=> '20'])}} {{Form::textarea('created_at',$details->created_at,['class'=> 'noneditable', 'rows' => '1', 'cols'=> '20' ,'disabled' => 'disabled'])}} {{Form::textarea('updated_at',$details->updated_at,['class'=> 'noneditable', 'rows' => '1', 'cols'=> '20','disabled' => 'disabled'])}}
 						<button type="submit" class="btn btn-default" name="save" value="save">Submit</button>

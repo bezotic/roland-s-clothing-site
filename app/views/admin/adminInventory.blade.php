@@ -32,8 +32,10 @@
 
 		    <div id="insertProducts">
 
-		    	@foreach($inventory as $item)
 
+		    	@foreach($inventory as $item)
+		    	
+		    	
 		     		<div id="admin-2">
 					
 					{{ Form::model($inventory,array('action' => array('InventoryController@updateAdminInventory',$item->id),'method' =>'PUT'))}}
@@ -43,7 +45,7 @@
 
 					</div>
 					<br>
-					
+
     				@endforeach
     			 	
 		    </div>

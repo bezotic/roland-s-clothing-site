@@ -110,9 +110,7 @@ class InventoryController extends BaseController {
 			Log::info('Log message', array('title' => $inventory->title, 'description' => $inventory->description, 'type' => $inventory->type));
 
 			
-			$data = ['inventory' => $inventory];
-		
-			return View::make('admin.adminInventory')->with($data);
+			return Redirect::action('InventoryController@showAdminInventory');
 		}
 			
 			
@@ -141,7 +139,7 @@ class InventoryController extends BaseController {
 	 */
 	
 	public function inventoryNotFound(){
-
+		
 
 		return App::abort(404);
 	}
@@ -150,7 +148,7 @@ class InventoryController extends BaseController {
 	public function updateAdminInventory($id)
 	{
 
-		$inventory = Inventory::find($id);
+		$inventory = Inventory::findOrFail($id);
 
 		if(is_null($inventory)){
 
