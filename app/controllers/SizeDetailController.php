@@ -89,7 +89,8 @@ class SizeDetailController extends BaseController
 	 */
 	public function update($id)
 	{
-		$sizeDetails = SizeDetail::find($id);
+		
+		$sizeDetails = SizeDetail::findOrFail($id);
 			if (is_null($sizeDetails)) {
 			App::abort(404);
 			} else {
@@ -126,11 +127,14 @@ class SizeDetailController extends BaseController
 		$validator = Validator::make(Input::all(), SizeDetail::$rules);
 
 		  if ($validator->fails()) {
-	        // validation failed, redirect to the post create page with validation errors and old inputs
+	       
 	        Session::flash('errorMessage', "Unable to save, see errors");
 	        return Redirect::back()->withInput()->withErrors($validator);
 	        
 	      } else {
+
+
+	      	$sizeDetails->size = Input::get('inventory_id');
 			$sizeDetails->size = Input::get('size');
 			$sizeDetails->amount = Input::get('amount');
 			$sizeDetails->color = Input::get('color');
@@ -138,6 +142,7 @@ class SizeDetailController extends BaseController
 			$sizeDetails->save();
 			
 			Session::flash('successMessage', "Successfully saved!");
+			return Redirect::action('SizeDetailController@showAdminSizeDetails');
 		    }
     }
 

@@ -32,7 +32,9 @@
 
 		    <div id="insertProducts">
 
+
 		    	@foreach($inventory as $item)
+		    	
 
 		     		<div id="admin-2">
 					
@@ -43,7 +45,7 @@
 
 					</div>
 					<br>
-					
+
     				@endforeach
     			 	
 		    </div>
@@ -65,14 +67,14 @@
                 @endif
 
                 <label for="title">Title:</label>
-                <textarea  type="text" class="form-control form1"  name="title" aria-describedby="basic-addon1">{{{ Input::old('title') }}}</textarea><br>
+                <textarea  type="text" class="form-control form1"  name="title" aria-describedby="basic-addon1">title</textarea><br>
 
                 @if($errors->has('description'))
                     <P>{{  $errors->first('description', '<span style="color:red" class="help-block">:message</span>') }}</p>
                 @endif
 
                 <label for="description">Description:</label>
-                <textarea  type="text" class="form-control form1"  name="description" aria-describedby="basic-addon1">{{{ Input::old('description') }}}</textarea><br>
+                <textarea  type="text" class="form-control form1"  name="description" aria-describedby="basic-addon1">description</textarea><br>
 
 
                  @if($errors->has('image'))
@@ -80,7 +82,21 @@
                 @endif
 
                 <label for="image">Image:</label>
-                <textarea  type="text" class="form-control form1"  name="type" aria-describedby="basic-addon1">Image Here</textarea><br>
+
+
+		            {{ Form::file('image') }}
+		           
+		            <br>
+		            <br>
+
+	                @if ($errors->has('image'))
+	                	<p>{{$errors->first('image')}}</p>
+	                @endif
+
+	                {{ Form::close() }}
+	            
+
+                <br>
 
 
                 @if($errors->has('type'))
@@ -88,7 +104,7 @@
                 @endif
 
                 <label for="type">Type:</label>
-                <textarea  type="text" class="form-control form1"  name="type" aria-describedby="basic-addon1">{{{ Input::old('type') }}}</textarea><br>
+                <textarea  type="text" class="form-control form1"  name="type" aria-describedby="basic-addon1">type</textarea><br>
 
                 <button type="submit" class="btn btn-default" name="save" value="save">Submit</button>
         	{{ Form::close() }}
