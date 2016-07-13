@@ -37,8 +37,15 @@
 	<div class='row'>
 	 <div class="form-group">
 	 	<div  class="col-md-4">
+
 		<select class='size-details-dropdown btn btn-default' name='id'>
 		  <option name='id'>{{$inventory->id}} </option>
+
+		<select class='size-details-dropdown btn btn-default' name='inventory_id'>
+		 
+		  <option name='id'>{{$inventory->id}} </option>
+
+
 		</select>
 
        <select class='size-details-dropdown btn btn-default' name='size'>
