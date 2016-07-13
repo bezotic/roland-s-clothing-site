@@ -59,6 +59,21 @@ class InventoryController extends BaseController {
 	}
 
 
+	public function inventoryImageUpload(){
+
+		if (Input::hasFile('image'))
+		{
+			//object, not string or number like 'get'
+			$image = Input::file('image');
+			//temp folder to file system on server where app is running
+            $image->move(public_path('/img'),$image->getClientOriginalName());
+            $user->image = "/img/{$image->getClientOriginalName()}";
+            $user->save();
+            return Redirect::action('InventoryController@showAdminInventory');
+    	}
+	}
+
+
 	public function showAdminInventory() {
 
 		$inventory = Inventory::all();
@@ -139,7 +154,7 @@ class InventoryController extends BaseController {
 	 */
 	
 	public function inventoryNotFound(){
-		
+
 
 		return App::abort(404);
 	}

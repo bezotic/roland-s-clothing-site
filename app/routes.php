@@ -26,11 +26,14 @@ Route::get('adminInventory', 'InventoryController@showAdminInventory');
 
 Route::post('saveAdminInventory', 'InventoryController@storeAdminInventory');
 
-Route::put('admininventory/{id}', 'InventoryController@updateAdminInventory');
+Route::put('adminInventory/{id}', 'InventoryController@updateAdminInventory');
 
 Route::get('adminSizeDetails', 'SizeDetailController@showAdminSizeDetails');
 
-Route::get('adminStoreSizeDetails', 'SizeDetailController@store');
+Route::put('adminSizeUpdate/{id}', 'SizeDetailController@update');
+
+Route::post('adminStoreSizeDetails', 'SizeDetailController@store');
+
 
 Route::get('users/about', 'UserController@showAbout');
 
