@@ -21,7 +21,7 @@
 	</div>
 	 <div class='col-md-4'>
 		<div class="product-details">
-			<h1>{{{$inventory->type}}}</h1>
+			
 		</div>
 	 </div>
 						
