@@ -149,7 +149,7 @@ class OrderItemController extends \BaseController {
 
 	public function createOrderItem() {
 
-		$orderItem = new OrderItem ();
+		$orderItem = new OrderItem();
 
 		return $this->validateAndSave($orderItem);
 

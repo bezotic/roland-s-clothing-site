@@ -3,6 +3,12 @@
 @section('top-script')
 	
 	<link rel='stylesheet' href='/js/chosen.css'>
+	<style>
+		.inventory_id {
+			display:none;
+		}
+
+	</style>
 @stop
 
 @section('content')
@@ -31,10 +37,8 @@
 	<div class='row'>
 	 <div class="form-group">
 	 	<div  class="col-md-4">
-		<select class='size-details-dropdown btn btn-default' name='inventory_id'>
-		
-		  <option name='size'>{{$inventory->id}} </option>
-		
+		<select class='size-details-dropdown btn btn-default' name='id'>
+		  <option name='id'>{{$inventory->id}} </option>
 		</select>
 
        <select class='size-details-dropdown btn btn-default' name='size'>
@@ -43,7 +47,7 @@
 		  @endforeach
 		</select>
 
-		{{ Form::select('count', [1, 2, 3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], null, ['class' => 'field']) }}
+		{{ Form::select('count', [1, 2, 3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], null, ['class' => 'size-details-dropdown btn btn-default']) }}
 	
 		
 		<select class='size-details-dropdown btn btn-default' name='cost'>
