@@ -131,7 +131,6 @@ class SizeDetailController extends BaseController
 	        return Redirect::back()->withInput()->withErrors($validator);
 	        
 	      } else {
-	      	var_dump($_POST);
 			$sizeDetails->size = Input::get('size');
 			$sizeDetails->amount = Input::get('amount');
 			$sizeDetails->color = Input::get('color');
