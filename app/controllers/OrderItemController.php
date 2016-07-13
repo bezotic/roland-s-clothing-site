@@ -37,24 +37,17 @@ class OrderItemController extends \BaseController {
 	}
 
 
+	private function orderItemsNotFound(){
+
+		return App::abort(404);
+	}
 	/**
 	 * Display the specified resource.
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
-	{
-		
-		$orderItems = OrderItem::find($id);
-
-		if(is_null($orderItems)){
-
-			return $this->orderItemsNotFound();
-		}
-
-		return View::make('orderItems.show',['orderItem' => $orderItems]);
-	}
+	
 
 
 	/**
@@ -109,7 +102,7 @@ class OrderItemController extends \BaseController {
 
 	}
 
-	public function validateAndSave($orderItems)
+	public function validateAndSave($orderItem)
 	{
 		$validator = Validator::make(Input::all(), OrderItem::$rules);
 
@@ -118,17 +111,49 @@ class OrderItemController extends \BaseController {
 	        Session::flash('errorMessage', "Unable to save, see errors");
 	        return Redirect::back()->withInput()->withErrors($validator);
 	    } else {
-			$orderItems->count = Input::get('count');
-			$orderItems->cost = Input::get('cost');
-			);
+
+	    	$orderItem->inventory_id = Input::get('inventory_id');
+
+	    	$orderItem->sizeDetail_id = Input::get('sizeDetail_id');
+
+	    	$count = Input::get('count');
+
+	    	$cost = Input::get('cost');
+
+	    	if($count < $sizeDetail->amount){
+	    		$orderItem->count = Input::get('count');
+
+	    	}else{
+	    		  Session::flash('errorMessage', "You have ordered more items than we have in stock. Lower purchase amount.");
+	    		  return Redirect::action('InventoryController@show');
+
+	    	}
+			
+			$count * $cost = $total;
+
+			$orderItem->cost = Input::get('cost');
+
+			$orderItem->save();
+
+			$data = ['orderItem' => $orderItem];
 			
 			Session::flash('successMessage', "Successfully saved!");
+
+			return View::make('orderItems.index')->with($data);
+
+		}
+
 	}
 
-	private function orderItemsNotFound()(){
+	
 
-		return App::abort(404);
+	public function createOrderItem() {
+
+		$orderItem = new OrderItem ();
+
+		return $this->validateAndSave($orderItem);
+
+
 	}
-
 
 }

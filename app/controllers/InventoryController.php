@@ -10,7 +10,7 @@ class InventoryController extends BaseController {
 	public function index()
 	{
 		
-		$inventory = Inventory::paginate(8);
+		$inventory = Inventory::all();
 
 		return View::make('inventories.index')->with('inventory', $inventory);
 	}
@@ -40,6 +40,7 @@ class InventoryController extends BaseController {
 	}
 
 
+
 	/**
 	 * Display the specified resource.
 	 *
@@ -49,6 +50,9 @@ class InventoryController extends BaseController {
 	public function show($id)
 	{
 		$inventory = Inventory::find($id);
+
+			Session::flash('successMessage',"Found it!!!!");
+
 
 		if(is_null($inventory)){
 
@@ -125,6 +129,10 @@ class InventoryController extends BaseController {
 			Log::info('Log message', array('title' => $inventory->title, 'description' => $inventory->description, 'type' => $inventory->type));
 
 			
+
+			$data = ['inventory' => $inventory];
+		
+
 			return Redirect::action('InventoryController@showAdminInventory');
 		}
 			
@@ -194,6 +202,13 @@ class InventoryController extends BaseController {
 		Session::flash('successMessage', "Size has been deleted");
 
 		return Redirect::action('UserController@index');
+	}
+
+	public function storeInventorySession()
+	{
+		
+		Session::put('size', $size);
+
 	}
 
 	
