@@ -25,9 +25,7 @@
 			<div class="black-line row"></div>
 		</div>
 		@foreach($inventory as $item)
-		<?php var_dump($item->id)?>;
-		<?php var_dump($item->title)?>;
-		<?php var_dump($item->type)?>;
+		
 		<div class="col-md-4 inventory">
 			<a href="{{{action('InventoryController@show', $item->id)}}}"><img class="img-responsive" src="{{{$item->image}}}"></a>
 			<a class="description" href="">{{{$item->title}}}</a>

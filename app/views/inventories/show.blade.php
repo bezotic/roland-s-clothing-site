@@ -21,7 +21,7 @@
 	</div>
 	 <div class='col-md-4'>
 		<div class="product-details">
-			
+			<h1>{{{$inventory->type}}}</h1>
 		</div>
 	 </div>
 						
@@ -32,9 +32,9 @@
 	 <div class="form-group">
 	 	<div  class="col-md-4">
 		<select class='size-details-dropdown btn btn-default' name='inventory_id'>
-		  @foreach($inventory as $item)
-		  <option name='size'>{{$item->id}} </option>
-		  @endforeach
+		
+		  <option name='size'>{{$inventory->id}} </option>
+		
 		</select>
 
        <select class='size-details-dropdown btn btn-default' name='size'>

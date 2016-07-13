@@ -127,6 +127,16 @@ class OrderController extends \BaseController {
 	}
 
 	public function storeSession() {
+	if (Session::has('order_id') && Order::find(Session::get('order_id')) != null) {
+      	
+      	$order = Order::find(Session::get('order_id'));
+   
+    } else {
+      $order = new Order();
+      $order->user_id = Auth::user()->id;
+      $order->save();
+      Session::put('order_id', $order->id);
+    }
 
 	}
 
