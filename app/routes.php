@@ -54,6 +54,10 @@ Route::get('/', 'UserController@index');
 
 Route::resource('inventories', 'InventoryController');
 
+
+Route::get('inventories/show', 'InventoryController@show');
+
+
 Route::resource('sizeDetails', 'SizeDetailController');
 
 Route::get('orderItems', 'OrderItemController@index');
