@@ -32,9 +32,9 @@
 	 <div class="form-group">
 	 	<div  class="col-md-4">
 		<select class='size-details-dropdown btn btn-default' name='inventory_id'>
-		  @foreach($inventory as $item)
-		  <option name='size'>{{$item->id}} </option>
-		  @endforeach
+		 
+		  <option name='id'>{{$inventory->id}} </option>
+		  
 		</select>
 
        <select class='size-details-dropdown btn btn-default' name='size'>
