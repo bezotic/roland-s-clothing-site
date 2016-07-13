@@ -31,9 +31,7 @@ class OrderController extends \BaseController {
 	 */
 	public function store()
 	{
-		$order = new Order();
-		Log::info(Input::all());
-		return $this->validateAndSave($order);
+		
 	}
 
 
@@ -123,9 +121,13 @@ class OrderController extends \BaseController {
 			Session::flash('successMessage', "Successfully saved!");
 	}
 
-	private function orderItemsNotFound()(){
+	public function orderItemsNotFound(){
 
 		return App::abort(404);
+	}
+
+	public function storeSession() {
+
 	}
 
 

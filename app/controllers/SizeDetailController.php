@@ -131,7 +131,6 @@ class SizeDetailController extends BaseController
 	        return Redirect::back()->withInput()->withErrors($validator);
 	        
 	      } else {
-	      	var_dump($_POST);
 			$sizeDetails->size = Input::get('size');
 			$sizeDetails->amount = Input::get('amount');
 			$sizeDetails->color = Input::get('color');
@@ -144,23 +143,16 @@ class SizeDetailController extends BaseController
 
     public function validateAndPurchase()
 	{
+		if(Session::has('size_details_id') && SizeDetails::find(Session::get('size_details_id')) !=null) {
+			$size_details = SizeDetail::find(Session::get('size_details_id'));
+		} else {
+			$size_details = new SizeDetail;
+			$size_details->inventory_id = Session::get('inventory_id');
+			$size_details->save();
+		}
 		
-		$validator = Validator::make(Input::all(), SizeDetail::$purchase);
-
-		  if ($validator->fails()) {
-	        // validation failed, redirect to the post create page with validation errors and old inputs
-	        Session::flash('errorMessage', "Unable to save, see errors");
-	        return Redirect::back()->withInput()->withErrors($validator);
-	        var_dump($_POST);
-	      } else {
-	      	$sizeDetails = new SizeDetail;
-			$sizeDetails->size = Input::get('size');
-			$sizeDetails->save();
-			
-			
-			Session::flash('successMessage', "Successfully saved!");
-		    }
     }
+
 
 	
 

@@ -7,6 +7,9 @@ class OrderItem extends BaseModel {
 
 
 	public static $rules = [
+
+						'inventory_id' => 'required',
+						'sizeDetail_id' => 'required',
 						'count' => 'required',
 						'cost'  => 'required'
 						];

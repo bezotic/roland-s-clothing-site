@@ -24,9 +24,10 @@ Route::get('users/index', 'UserController@index');
 
 Route::get('adminInventory', 'InventoryController@showAdminInventory');
 
-Route::post('saveAdminInventory', 'InventoryController@storeAdminInventory');
+Route::put('admininventory/{id}', 'InventoryController@updateAdminInventory');
 
-Route::put('updateAdminInventory/{$id}', 'InventoryController@updateAdminInventory');
+Route::post('adminInventory', 'InventoryController@storeAdminInventory');
+
 
 Route::get('adminSizeDetails', 'SizeDetailController@showAdminSizeDetails');
 
@@ -50,11 +51,13 @@ Route::get('/', 'UserController@index');
 
 Route::resource('inventories', 'InventoryController');
 
-Route::post('inventories/show', 'SizeDetailController@validateAndPurchase');
+
 
 Route::resource('sizeDetails', 'SizeDetailController');
 
-Route::resource('orderItems', 'OrderItemController');
+Route::get('orderItems', 'OrderItemController@index');
+
+Route::post('orderItems/create', "OrderItemController@createOrderItem");
 
 Route::resource('orders', 'OrderController');
 

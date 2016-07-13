@@ -24,14 +24,31 @@
 			<h1>{{{$inventory->type}}}</h1>
 		</div>
 	 </div>
-		{{ Form::open(['action' => 'SizeDetailController@validateAndPurchase', 'method'=>'POST', 'class'=>'form-horizontal']) }}	
+						
+
+		{{ Form::open(['action' => 'OrderItemController@createOrderItem', 'method'=>'POST', 'class'=>'form-horizontal']) }}	
 	
 	<div class='row'>
 	 <div class="form-group">
 	 	<div  class="col-md-4">
+		<select class='size-details-dropdown btn btn-default' name='inventory_id'>
+		  @foreach($inventory as $item)
+		  <option name='size'>{{$item->id}} </option>
+		  @endforeach
+		</select>
+
        <select class='size-details-dropdown btn btn-default' name='size'>
 		  @foreach($inventory->size_details as $details)
-		  <option value='size' name='size'>{{{$details->size}}}: ${{{$details->price}}} </option>
+		  <option name='size'>{{$details->size}} </option>
+		  @endforeach
+		</select>
+
+		{{ Form::select('count', [1, 2, 3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], null, ['class' => 'field']) }}
+	
+		
+		<select class='size-details-dropdown btn btn-default' name='cost'>
+		  @foreach($inventory->size_details as $details)
+		  <option name='cost'>{{$details->price}} </option>
 		  @endforeach
 		</select>
 		
@@ -49,7 +66,7 @@
 
 
 {{Form::close()}}
-<?= var_dump($_POST)?>
+
 @stop
 
 @section('bottom-script')
