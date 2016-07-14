@@ -45,13 +45,7 @@
 	
 	<div class='row'>
 
-	 <div class="form-group">
-	 	<div  class="col-md-4">
-
-		<select class='size-details-dropdown btn btn-default' name='id'>
-		  <option name='id'>{{$inventory->id}} </option>
-
-	 	<div class="form-group">
+	 	<div class="form-group" form method="post">
 	 		<div  class="col-md-4">
 		 		
 		 		
@@ -62,7 +56,7 @@
 				  	<option name='inventory_id'>{{$inventory->id}} </option>
 				</select>
 
-		       <select class='size-details-dropdown btn btn-default' name='size'>
+		       <select class='size-details-dropdown btn btn-default' name='sizeDetail_id'>
 					  @foreach($inventory->size_details as $details)
 					  <option name='sizeDetail_id'>{{$details->size}} </option>
 					  @endforeach
@@ -70,31 +64,13 @@
 
 				<br>
 				<br>
-
-				{{ Form::select('count', [1, 2, 3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], null, ['class' => 'field']) }}
 			
 				
-				<select class='size-details-dropdown btn btn-default' name='cost'>
-					  @foreach($inventory->size_details as $details)
-					  <option name='cost'>{{$details->price}} </option>
-					  @endforeach
-				</select>
-				
-					<br>
-					<br>
 
-				<div class="form-group">
-					<button type="submit" class="btn btn-default confirm-btn" name="save" value="save">Add To Bag</button>
-				</div>
-				<?php var_dump(Order::first()->id)?>
-		 		<?php var_dump($inventory->id)?>
-		 		<?php var_dump($details->size)?>
-		 		<?php var_dump('count')?>
-		 		<?php var_dump($details->price)?>
-
-
-		{{ Form::select('count', [1, 2, 3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], null, ['class' => 'size-details-dropdown btn btn-default']) }}
 	
+		{{ Form::select('count', [1, 2, 3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], null, ['class' => 'size-details-dropdown btn btn-default']) }}
+
+
 		
 		<select class='size-details-dropdown btn btn-default' name='cost'>
 		  @foreach($inventory->size_details as $details)
@@ -112,9 +88,16 @@
 
 </div>
 
+<?php var_dump(Order::first()->id)?>
+		 		<?php var_dump($inventory->id)?>
+		 		<?php var_dump($details->size)?>
+		 		<?php var_dump($order_items->count)?>
+		 		<?php var_dump($details->price)?>
+
 
 
 {{Form::close()}}
+<?php var_dump($_POST) ?>	
 
 @stop
 

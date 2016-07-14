@@ -50,6 +50,7 @@ class InventoryController extends BaseController {
 	public function show($id)
 	{
 		$inventory = Inventory::find($id);
+		$order_items = OrderItem::find($id);
 
 			Session::flash('successMessage',"Found it!!!!");
 
@@ -59,7 +60,7 @@ class InventoryController extends BaseController {
 			App::abort(404);
 		}
 
-		return View::make('inventories.show',['inventory' => $inventory]);
+		return View::make('inventories.show',['inventory' => $inventory,'order_items' => $order_items]);
 	}
 
 
