@@ -18,6 +18,7 @@
 
 	</style>
 @stop
+ <link rel='stylesheet' href='/js/chosen.css'>
 
 @section('content')
 
@@ -65,10 +66,13 @@
 				<br>
 				<br>
 			
-				
 
-	
-		{{ Form::select('count', [1, 2, 3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], null, ['class' => 'size-details-dropdown btn btn-default']) }}
+   
+                  <select class="size-details-dropdown btn btn-default count" name="count" id="count"></select>
+                 @if ($errors->has('count'))
+                <p>{{$errors->first('count')}}</p>
+                @endif
+
 
 
 		
@@ -90,8 +94,12 @@
 
 <?php var_dump(Order::first()->id)?>
 		 		<?php var_dump($inventory->id)?>
+	
 		 		<?php var_dump($details->size)?>
-		 		<?php var_dump($order_items->count)?>
+		 		
+	
+		 		<?php var_dump('count')?>
+
 		 		<?php var_dump($details->price)?>
 
 
@@ -102,6 +110,12 @@
 @stop
 
 @section('bottom-script')
+<script src="/js/countries.js"></script>
+<script src="/js/chosen.jquery.min.js"></script>
+<script language="javascript">
+
+populateNumbers("count");
 
 
+</script>
 @stop
