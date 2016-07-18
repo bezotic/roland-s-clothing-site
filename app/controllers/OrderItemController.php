@@ -116,12 +116,13 @@ class OrderItemController extends \BaseController {
 
 	    	$orderItem->sizeDetail_id = Input::get('sizeDetail_id');
 
-	    	$count = Input::get('count');
+	    	$count = $num;
 
 	    	$cost = Input::get('cost');
 
-	    	if($count < $sizeDetail->amount){
-	    		$orderItem->count = Input::get('count');
+	    	if($num < $sizeDetail->amount){
+
+	    		$orderItem->count = $num;
 
 	    	}else{
 	    		  Session::flash('errorMessage', "You have ordered more items than we have in stock. Lower purchase amount.");
@@ -129,7 +130,7 @@ class OrderItemController extends \BaseController {
 
 	    	}
 			
-			$count * $cost = $total;
+			$num * $cost = $total;
 
 			$orderItem->cost = Input::get('cost');
 
@@ -149,7 +150,9 @@ class OrderItemController extends \BaseController {
 
 	public function createOrderItem() {
 
+
 		$orderItem = new OrderItem();
+
 
 		return $this->validateAndSave($orderItem);
 
