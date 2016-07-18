@@ -79,8 +79,6 @@
 				</select>
 
 				<br>
-			
-			
 
 
 				<select class='size-details-dropdown btn btn-default' name='count' default='0'>
@@ -127,6 +125,12 @@
 	<?php var_dump('color  ' . $details->color)?>
 	<?php var_dump('total  ' . $total)?>
 	<?php var_dump('num is my count for figuring total  '. $num)?>
+
+	<?php var_dump(Input::get('inventory_id'))?>
+	<?php var_dump(Input::get('sizeDetail_id'))?>
+	<?php var_dump(Input::get('count'))?>
+	<?php var_dump(Input::get('cost'))?>
+	<?php var_dump(Input::get('color'))?>
 </div>
 
 
