@@ -20,6 +20,10 @@ class Inventory extends BaseModel {
 	}
 
 
+	public function orderItems()
+	{
+		return $this->hasMany('OrderItem');
+	}
 
 
 
