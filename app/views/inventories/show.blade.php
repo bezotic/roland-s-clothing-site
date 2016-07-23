@@ -71,6 +71,8 @@
 				<select class='size-details-dropdown btn btn-default' name='inventory_id'>
 				  	<option name='inventory_id'>{{$inventory->id}} </option>
 				</select>
+			
+				
 
 		       <select class='size-details-dropdown btn btn-default' name='size'>
 					@foreach($inventory->size_details as $details)
